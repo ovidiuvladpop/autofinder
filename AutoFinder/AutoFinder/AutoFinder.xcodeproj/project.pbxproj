@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */; };
+		584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		584AEE651CA2979B00F6D8E4 /* FindDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDriverViewController.h; sourceTree = "<group>"; };
+		584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDriverViewController.m; sourceTree = "<group>"; };
+		584AEE681CA29B1900F6D8E4 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
+		584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,6 +80,10 @@
 				D0994EDF1C947AA9009A46AE /* Info.plist */,
 				D0994ED71C947AA9009A46AE /* AutoFinder.xcdatamodeld */,
 				D0994ECB1C947AA9009A46AE /* Supporting Files */,
+				584AEE651CA2979B00F6D8E4 /* FindDriverViewController.h */,
+				584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */,
+				584AEE681CA29B1900F6D8E4 /* TakePhotoViewController.h */,
+				584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -164,7 +174,9 @@
 			files = (
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
 				D0994ED31C947AA9009A46AE /* ViewController.m in Sources */,
+				584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */,
 				D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */,
+				584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */,
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +332,7 @@
 				D0994EE41C947AA9009A46AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

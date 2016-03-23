@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -190,7 +190,7 @@
         <!--Find Driver-->
         <scene sceneID="aZ1-r1-WYC">
             <objects>
-                <viewController id="e9b-fU-QlT" userLabel="Find Driver" sceneMemberID="viewController">
+                <viewController id="e9b-fU-QlT" userLabel="Find Driver" customClass="FindDriverViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7r-H9-P52"/>
                         <viewControllerLayoutGuide type="bottom" id="w3J-1w-Wlq"/>
@@ -208,6 +208,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendPhoto:" destination="e9b-fU-QlT" eventType="touchUpInside" id="Glz-GU-3Kj"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gO6-jC-ugQ">
                                 <rect key="frame" x="212" y="191" width="177" height="30"/>
@@ -232,6 +235,9 @@
                                 <state key="normal" image="camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Suv-4f-P9D" kind="show" id="EfP-26-k3X"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59607843140000005" green="0.72941176470000002" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -246,10 +252,78 @@
                             <constraint firstItem="9eH-8L-fzr" firstAttribute="top" secondItem="lTX-PF-NtZ" secondAttribute="bottom" constant="3" id="uEe-Gx-p7m"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="carNumberField" destination="gO6-jC-ugQ" id="wOk-OE-KwS"/>
+                        <outlet property="sendPhotoButton" destination="TGa-d8-Jy7" id="eeK-7J-Fvd"/>
+                        <outlet property="showParkingLabel" destination="lTX-PF-NtZ" id="4Qq-bq-Rqp"/>
+                        <outlet property="takePhotoButton" destination="9eH-8L-fzr" id="2a6-OA-gfK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tc0-hw-Loj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2945" y="-2014"/>
+        </scene>
+        <!--Take Photo View Controller-->
+        <scene sceneID="5xh-nc-m1u">
+            <objects>
+                <viewController id="Suv-4f-P9D" customClass="TakePhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xpn-sf-bD0"/>
+                        <viewControllerLayoutGuide type="bottom" id="A26-Z5-kIK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xyp-FQ-o26">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sq6-gR-J0Q">
+                                <rect key="frame" x="-5" y="-8" width="605" height="456"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="If2-5g-yg6">
+                                <rect key="frame" x="214" y="456" width="172" height="30"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="uWX-Ie-QLM"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhotoButton:" destination="Suv-4f-P9D" eventType="touchUpInside" id="e14-Yu-Ktf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-zH-fQM">
+                                <rect key="frame" x="214" y="506" width="172" height="30"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhotoButton:" destination="Suv-4f-P9D" eventType="touchUpInside" id="C0M-P1-0WK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="If2-5g-yg6" firstAttribute="trailing" secondItem="X9c-zH-fQM" secondAttribute="trailing" id="81G-yU-egQ"/>
+                            <constraint firstItem="If2-5g-yg6" firstAttribute="leading" secondItem="X9c-zH-fQM" secondAttribute="leading" id="HRZ-fd-mLN"/>
+                            <constraint firstItem="If2-5g-yg6" firstAttribute="top" secondItem="sq6-gR-J0Q" secondAttribute="bottom" constant="8" id="Lw1-mi-lWQ"/>
+                            <constraint firstItem="X9c-zH-fQM" firstAttribute="top" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="20" id="PW9-di-gV9"/>
+                            <constraint firstItem="sq6-gR-J0Q" firstAttribute="leading" secondItem="xyp-FQ-o26" secondAttribute="leadingMargin" constant="-25" id="XUp-fe-gm5"/>
+                            <constraint firstItem="If2-5g-yg6" firstAttribute="centerX" secondItem="xyp-FQ-o26" secondAttribute="centerX" id="bid-ue-yEH"/>
+                            <constraint firstAttribute="bottom" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="114" id="cCB-Fd-d46"/>
+                            <constraint firstItem="sq6-gR-J0Q" firstAttribute="top" secondItem="xyp-FQ-o26" secondAttribute="topMargin" constant="-8" id="tL9-6f-GVa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sq6-gR-J0Q" secondAttribute="trailing" constant="-20" id="vKp-XQ-qBj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="sq6-gR-J0Q" id="bQo-KI-CSQ"/>
+                        <outlet property="selectPhotoButton" destination="X9c-zH-fQM" id="HeU-7i-XCZ"/>
+                        <outlet property="takePhotoButton" destination="If2-5g-yg6" id="BsV-J9-Adf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWt-XG-Z12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3833" y="-2014"/>
         </scene>
         <!--Find Parking-->
         <scene sceneID="nCb-S8-1lp">
@@ -263,7 +337,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-51-OzW">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-51-OzW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
@@ -292,7 +366,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-ey-ogm">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-ey-ogm">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
