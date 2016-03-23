@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -276,10 +276,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sq6-gR-J0Q">
-                                <rect key="frame" x="-5" y="-8" width="605" height="456"/>
+                                <rect key="frame" x="-5" y="-8" width="605" height="404"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="If2-5g-yg6">
-                                <rect key="frame" x="214" y="456" width="172" height="30"/>
+                                <rect key="frame" x="214" y="404" width="172" height="30"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="uWX-Ie-QLM"/>
@@ -292,7 +292,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-zH-fQM">
-                                <rect key="frame" x="214" y="506" width="172" height="30"/>
+                                <rect key="frame" x="214" y="451" width="172" height="30"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Select Photo">
                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,16 +301,24 @@
                                     <action selector="selectPhotoButton:" destination="Suv-4f-P9D" eventType="touchUpInside" id="C0M-P1-0WK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKX-FK-enH">
+                                <rect key="frame" x="254" y="505" width="93" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendPhoto:" destination="Suv-4f-P9D" eventType="touchUpInside" id="ZV7-yx-SxY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="If2-5g-yg6" firstAttribute="trailing" secondItem="X9c-zH-fQM" secondAttribute="trailing" id="81G-yU-egQ"/>
                             <constraint firstItem="If2-5g-yg6" firstAttribute="leading" secondItem="X9c-zH-fQM" secondAttribute="leading" id="HRZ-fd-mLN"/>
                             <constraint firstItem="If2-5g-yg6" firstAttribute="top" secondItem="sq6-gR-J0Q" secondAttribute="bottom" constant="8" id="Lw1-mi-lWQ"/>
-                            <constraint firstItem="X9c-zH-fQM" firstAttribute="top" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="20" id="PW9-di-gV9"/>
+                            <constraint firstItem="X9c-zH-fQM" firstAttribute="top" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="17" id="PW9-di-gV9"/>
                             <constraint firstItem="sq6-gR-J0Q" firstAttribute="leading" secondItem="xyp-FQ-o26" secondAttribute="leadingMargin" constant="-25" id="XUp-fe-gm5"/>
                             <constraint firstItem="If2-5g-yg6" firstAttribute="centerX" secondItem="xyp-FQ-o26" secondAttribute="centerX" id="bid-ue-yEH"/>
-                            <constraint firstAttribute="bottom" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="114" id="cCB-Fd-d46"/>
+                            <constraint firstAttribute="bottom" secondItem="If2-5g-yg6" secondAttribute="bottom" constant="166" id="cCB-Fd-d46"/>
                             <constraint firstItem="sq6-gR-J0Q" firstAttribute="top" secondItem="xyp-FQ-o26" secondAttribute="topMargin" constant="-8" id="tL9-6f-GVa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sq6-gR-J0Q" secondAttribute="trailing" constant="-20" id="vKp-XQ-qBj"/>
                         </constraints>
