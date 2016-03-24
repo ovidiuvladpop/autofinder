@@ -12,7 +12,7 @@
 		584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */; };
 		584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */; };
 		584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE701CA41B0400F6D8E4 /* LoginViewController.m */; };
-		584AEE761CA41B0400F6D8E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE721CA41B0400F6D8E4 /* User.m */; };
+		584AEE851CA43E5A00F6D8E4 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE841CA43E5A00F6D8E4 /* User+CoreDataProperties.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
@@ -34,8 +34,8 @@
 		584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		584AEE701CA41B0400F6D8E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		584AEE711CA41B0400F6D8E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		584AEE721CA41B0400F6D8E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		584AEE831CA43E5A00F6D8E4 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "AutoFinder/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		584AEE841CA43E5A00F6D8E4 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "AutoFinder/User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +65,8 @@
 		D0994EBF1C947AA8009A46AE = {
 			isa = PBXGroup;
 			children = (
+				584AEE831CA43E5A00F6D8E4 /* User+CoreDataProperties.h */,
+				584AEE841CA43E5A00F6D8E4 /* User+CoreDataProperties.m */,
 				D0994EE51C948B8D009A46AE /* MapKit.framework */,
 				D0994ECA1C947AA9009A46AE /* AutoFinder */,
 				D0994EC91C947AA9009A46AE /* Products */,
@@ -88,8 +90,6 @@
 				584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */,
 				584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */,
 				584AEE701CA41B0400F6D8E4 /* LoginViewController.m */,
-				584AEE711CA41B0400F6D8E4 /* User.h */,
-				584AEE721CA41B0400F6D8E4 /* User.m */,
 				D0994ECE1C947AA9009A46AE /* AppDelegate.h */,
 				D0994ECF1C947AA9009A46AE /* AppDelegate.m */,
 				D0994ED11C947AA9009A46AE /* ViewController.h */,
@@ -192,7 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				584AEE761CA41B0400F6D8E4 /* User.m in Sources */,
+				584AEE851CA43E5A00F6D8E4 /* User+CoreDataProperties.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
 				584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */,
 				D0994ED31C947AA9009A46AE /* ViewController.m in Sources */,

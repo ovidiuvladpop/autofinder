@@ -224,6 +224,9 @@
                                 <state key="normal" image="camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8OH-sy-dVd" kind="show" id="ftk-VI-fgr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show us ! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04d-ir-MYr">
                                 <rect key="frame" x="261" y="129" width="79" height="21"/>
@@ -260,7 +263,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tc0-hw-Loj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-2014"/>
+            <point key="canvasLocation" x="2955" y="-2033"/>
+        </scene>
+        <!--Take Photo View Controller-->
+        <scene sceneID="pXG-qW-ouK">
+            <objects>
+                <viewController id="8OH-sy-dVd" customClass="TakePhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RSd-v2-tUU"/>
+                        <viewControllerLayoutGuide type="bottom" id="tcY-RB-A2D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6rc-UC-9G2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zYP-hh-F1z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="428"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGZ-ER-V1l">
+                                <rect key="frame" x="262" y="436" width="77" height="30"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhotoButton:" destination="8OH-sy-dVd" eventType="touchUpInside" id="jGr-Tz-Xl4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-R7-EnF">
+                                <rect key="frame" x="256" y="474" width="88" height="30"/>
+                                <state key="normal" title="Select Photo"/>
+                                <connections>
+                                    <action selector="selectPhotoButton:" destination="8OH-sy-dVd" eventType="touchUpInside" id="GIi-9f-YaA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-Qe-drE">
+                                <rect key="frame" x="285" y="512" width="30" height="30"/>
+                                <state key="normal" title="Ok"/>
+                                <connections>
+                                    <action selector="sendPhoto:" destination="8OH-sy-dVd" eventType="touchUpInside" id="xyL-fI-MgZ"/>
+                                    <segue destination="e9b-fU-QlT" kind="show" id="30q-xl-g4w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lGZ-ER-V1l" firstAttribute="leading" secondItem="kZM-Qe-drE" secondAttribute="leading" constant="-23" id="2WA-ZA-dbf"/>
+                            <constraint firstItem="zYP-hh-F1z" firstAttribute="top" secondItem="6rc-UC-9G2" secondAttribute="topMargin" id="5vQ-WA-3AN"/>
+                            <constraint firstItem="lGZ-ER-V1l" firstAttribute="leading" secondItem="sT9-R7-EnF" secondAttribute="leading" constant="6" id="HEW-eI-8dz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zYP-hh-F1z" secondAttribute="trailing" constant="-20" id="Nv3-La-8zZ"/>
+                            <constraint firstItem="lGZ-ER-V1l" firstAttribute="top" secondItem="zYP-hh-F1z" secondAttribute="bottom" constant="8" id="Oyd-zR-kfV"/>
+                            <constraint firstItem="zYP-hh-F1z" firstAttribute="leading" secondItem="6rc-UC-9G2" secondAttribute="leadingMargin" constant="-20" id="Xn9-MM-UoM"/>
+                            <constraint firstAttribute="bottom" secondItem="lGZ-ER-V1l" secondAttribute="bottom" constant="134" id="eaF-Ob-ndt"/>
+                            <constraint firstItem="sT9-R7-EnF" firstAttribute="top" secondItem="lGZ-ER-V1l" secondAttribute="bottom" constant="8" id="t8D-Cf-4yo"/>
+                            <constraint firstItem="lGZ-ER-V1l" firstAttribute="centerX" secondItem="zYP-hh-F1z" secondAttribute="centerX" id="tpL-bZ-NZe"/>
+                            <constraint firstItem="kZM-Qe-drE" firstAttribute="top" secondItem="sT9-R7-EnF" secondAttribute="bottom" constant="8" id="zAF-ZM-5Ga"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="zYP-hh-F1z" id="epV-rZ-6qZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8I-VY-cB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3806" y="-2018"/>
         </scene>
         <!--Find Parking-->
         <scene sceneID="nCb-S8-1lp">
@@ -514,9 +577,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="LBF-F7-slw" id="Kiq-vx-WV2"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWx-k5-j81">
                                                 <rect key="frame" x="174" y="343" width="252" height="30"/>
@@ -632,11 +692,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmA-JC-fIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="-678"/>
+            <point key="canvasLocation" x="1309" y="-722"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" width="128" height="128"/>
         <image name="car" width="1920" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="30q-xl-g4w"/>
+    </inferredMetricsTieBreakers>
 </document>

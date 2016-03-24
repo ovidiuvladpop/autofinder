@@ -9,6 +9,8 @@
 #import "CreateAccountViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "User+CoreDataProperties.h"
+#import "User.h"
 
 @interface CreateAccountViewController () {
     NSManagedObjectContext *context;
@@ -47,13 +49,14 @@
 -(IBAction)createAccountButtonPressed:(id)sender{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
+    NSManagedObject *entityDescription = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                          inManagedObjectContext:appDelegate.managedObjectContext];
     [entityDescription setValue:[[self usernameField] text] forKey:@"username"];
     [entityDescription setValue:[[self passwordField] text] forKey:@"password"];
     [entityDescription setValue:[[self emailField] text] forKey:@"email"];
     [entityDescription setValue:[[self phoneNumberField] text] forKey:@"phone"];
     [entityDescription setValue:[[self carNumberField] text] forKey:@"car"];
+    [entityDescription setValue:[NSNumber numberWithInt:3] forKey:@"attempts"];
     
     NSError *error;
     BOOL isSaved = [appDelegate.managedObjectContext save:&error];
