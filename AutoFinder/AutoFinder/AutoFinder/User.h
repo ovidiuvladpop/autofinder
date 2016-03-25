@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+@interface User : NSObject
+
+@property (nullable, nonatomic, retain) NSString *username;
+@property (nullable, nonatomic, retain) NSString *password;
+@property (nullable, nonatomic, retain) NSString *email;
+@property (nullable, nonatomic, retain) NSString *phone;
+@property (nullable, nonatomic, retain) NSString *car;
+@property (nullable, nonatomic, retain) NSNumber *attempts;
 
 @end
 
-NS_ASSUME_NONNULL_END
 
-#import "User+CoreDataProperties.h"

@@ -9,8 +9,7 @@
 #import "CreateAccountViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import "User+CoreDataProperties.h"
-#import "User.h"
+
 
 @interface CreateAccountViewController () {
     NSManagedObjectContext *context;
@@ -49,14 +48,14 @@
 -(IBAction)createAccountButtonPressed:(id)sender{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    NSManagedObject *entityDescription = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                                         inManagedObjectContext:appDelegate.managedObjectContext];
-    [entityDescription setValue:[[self usernameField] text] forKey:@"username"];
-    [entityDescription setValue:[[self passwordField] text] forKey:@"password"];
-    [entityDescription setValue:[[self emailField] text] forKey:@"email"];
-    [entityDescription setValue:[[self phoneNumberField] text] forKey:@"phone"];
-    [entityDescription setValue:[[self carNumberField] text] forKey:@"car"];
-    [entityDescription setValue:[NSNumber numberWithInt:3] forKey:@"attempts"];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSManagedObject *newUser =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+    [newUser setValue:[[self usernameField] text] forKey:@"username"];
+    [newUser setValue:[[self passwordField] text] forKey:@"password"];
+    [newUser setValue:[[self emailField] text] forKey:@"email"];
+    [newUser setValue:[[self phoneNumberField] text] forKey:@"phone"];
+    [newUser setValue:[[self carNumberField] text] forKey:@"car"];
+    [newUser setValue:[NSNumber numberWithInt:3] forKey:@"attempts"];
     
     NSError *error;
     BOOL isSaved = [appDelegate.managedObjectContext save:&error];
