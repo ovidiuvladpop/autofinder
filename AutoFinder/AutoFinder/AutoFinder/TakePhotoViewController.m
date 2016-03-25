@@ -7,9 +7,9 @@
 //
 
 #import "TakePhotoViewController.h"
+#import "FindDriverViewController.h"
 
-@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
+@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
@@ -23,6 +23,7 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Actions
 
 -(IBAction)selectPhotoButton:(id)sender{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -48,8 +49,25 @@
 -(IBAction)sendPhoto:(id)sender{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
                           @"Thank you" message:@"The photo is selected" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
+    
     [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+
+{
+   
+        if (buttonIndex == 1) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+}
+
+
+
+
+
+
+
 
 #pragma mark - Image Picker Controller delegate methods
 

@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *carNumberField;
 
 
-- (IBAction)sendPhoto:(id)sender;
+- (IBAction)recieveNumber:(id)sender;
 
 @end

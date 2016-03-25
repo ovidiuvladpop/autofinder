@@ -17,6 +17,7 @@
 
 - (IBAction)loginButtonPressed:(id)sender;
 
+- (IBAction)notButton:(id)sender;
 
 
 @end

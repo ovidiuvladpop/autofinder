@@ -11,6 +11,7 @@
 #import "CreateAccountViewController.h"
 #import "AppDelegate.h"
 
+
 @interface LoginViewController(){
     NSManagedObjectContext *context;
 }
@@ -18,6 +19,15 @@
 
 
 @implementation LoginViewController
+
+
+-(IBAction)notButton:(id)sender{
+    [self performSegueWithIdentifier:@"createAccountSegue" sender:self];
+    
+}
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    return NO;
+}
 
 - (IBAction)loginButtonPressed:(id)sender {
     
@@ -62,17 +72,12 @@
                 username = [obj valueForKey:@"username"];
                 password = [obj valueForKey:@"password"];
             }
-    
-            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Correct"
-                                                           message:@"Correct username and password !"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Dismiss"
-                                                 otherButtonTitles:nil];
-            [alert show];
-          //  HomeViewController *homeViewController = [[HomeViewController alloc] init];
-           // [[self navigationController] pushViewController:homeViewController animated:YES];
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
         }
 }
+
+
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -81,9 +86,6 @@
     
     AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
-    
-   // infoDictionary = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:@"password", nil]
-                                   // forKeys:[NSArray arrayWithObjects:@"username", nil]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

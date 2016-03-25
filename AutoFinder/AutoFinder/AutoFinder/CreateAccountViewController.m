@@ -61,31 +61,9 @@
     BOOL isSaved = [appDelegate.managedObjectContext save:&error];
     NSLog(@"Successfully saved flag: %d", isSaved);
     if (isSaved) {
-        [[self navigationController] popViewControllerAnimated:YES];
-    } else {
-        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Warning"
-                                                       message:@"Incorrect username!"
-                                                      delegate:self
-                                             cancelButtonTitle:@"Dismiss"
-                                             otherButtonTitles:nil];
-        [alert show];    }
-    
-    //NSManagedObject *newUser = [[NSManagedObject alloc] initWithEntity:entityDescription
-                                        //insertIntoManagedObjectContext:context];
-    
-    //[newUser setValue:[[self usernameField]text]
-    //           forKey:@"username"];
-    //[newUser setValue:[[self passwordField] text]
-    //           forKey:@"password"];
-    //[newUser setValue:[[self emailField] text]
-    //           forKey:@"email"];
-    //[newUser setValue:[[self phoneNumberField] text]
-    //           forKey:@"phone"];
-    //[newUser setValue:[[self carNumberField] text]
-    //           forKey:@"car"];
-    
-    //NSError *error;
-    //[context save:&error];
+               [[self navigationController] popViewControllerAnimated:YES];
+
+    }
     
     [self dismissKeyboard];
 

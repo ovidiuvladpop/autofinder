@@ -12,12 +12,12 @@
 
 @interface User : NSObject
 
-@property (nullable, nonatomic, retain) NSString *username;
-@property (nullable, nonatomic, retain) NSString *password;
-@property (nullable, nonatomic, retain) NSString *email;
-@property (nullable, nonatomic, retain) NSString *phone;
-@property (nullable, nonatomic, retain) NSString *car;
-@property (nullable, nonatomic, retain) NSNumber *attempts;
+@property (nullable, nonatomic) NSString *username;
+@property (nullable, nonatomic) NSString *password;
+@property (nullable, nonatomic) NSString *email;
+@property (nullable, nonatomic) NSString *phone;
+@property (nullable, nonatomic) NSString *car;
+@property (nullable, nonatomic) NSNumber *attempts;
 
 @end
 

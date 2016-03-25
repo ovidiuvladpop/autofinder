@@ -7,9 +7,48 @@
 //
 
 #import "FindDriverViewController.h"
+#import "AppDelegate.h"
+
+@interface FindDriverViewController(){
+    NSManagedObjectContext *context;
+}
+@end
 
 @implementation FindDriverViewController
 
-- (IBAction)sendPhoto:(id)sender {
+- (IBAction)recieveNumber:(id)sender {
+    
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
+                                                  inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entitydesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"car like %@", [[self carNumberField] text]];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *matchingData=[context executeFetchRequest:request
+                                                 error:&error];
+    
+    if(matchingData.count <= 0){
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"We are sorry"
+                                                       message:@"We have not found any number!"
+                                                      delegate:self
+                                             cancelButtonTitle:@"Dismiss"
+                                             otherButtonTitles:nil];
+        [alert show];
+    } else
+    {
+        NSString *phoneNumber;
+        
+        for(NSManagedObjectContext *obj in matchingData) {
+            phoneNumber = [obj valueForKey:@"phone"];
+           
+        }
+       
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the  phone number" message:phoneNumber delegate:self cancelButtonTitle:@"cacel" otherButtonTitles:@"ok", nil];
+        
+        [alert show];
+    }
 }
 @end
