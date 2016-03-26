@@ -35,8 +35,8 @@
 		584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		584AEE701CA41B0400F6D8E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		584AEE861CA56B7800F6D8E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = AutoFinder/User.h; sourceTree = "<group>"; };
-		584AEE871CA56B7800F6D8E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = AutoFinder/User.m; sourceTree = "<group>"; };
+		584AEE861CA56B7800F6D8E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		584AEE871CA56B7800F6D8E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		584AEE891CA57AF200F6D8E4 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,8 +68,6 @@
 		D0994EBF1C947AA8009A46AE = {
 			isa = PBXGroup;
 			children = (
-				584AEE861CA56B7800F6D8E4 /* User.h */,
-				584AEE871CA56B7800F6D8E4 /* User.m */,
 				D0994EE51C948B8D009A46AE /* MapKit.framework */,
 				D0994ECA1C947AA9009A46AE /* AutoFinder */,
 				D0994EC91C947AA9009A46AE /* Products */,
@@ -87,6 +85,8 @@
 		D0994ECA1C947AA9009A46AE /* AutoFinder */ = {
 			isa = PBXGroup;
 			children = (
+				584AEE871CA56B7800F6D8E4 /* User.m */,
+				584AEE861CA56B7800F6D8E4 /* User.h */,
 				584AEE6B1CA41B0400F6D8E4 /* CreateAccountViewController.h */,
 				584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */,
 				584AEE6D1CA41B0400F6D8E4 /* HomeViewController.h */,
