@@ -13,21 +13,15 @@
       NSManagedObjectContext *context;
     
     __weak IBOutlet UITextField *usernameField;
-    __weak IBOutlet UITextField *passwordField;
     __weak IBOutlet UITextField *emailField;
-    __weak IBOutlet UITextField *phoneField;
-    __weak IBOutlet UITextField *carField;
-    __weak IBOutlet UILabel *attemptsLabel;
-    __weak IBOutlet UILabel *numberAttemptsLabel;
-    
+    __weak IBOutlet UITextField *phoneNumberField;
+    __weak IBOutlet UITextField *carNumberField;
+    __weak IBOutlet UITextField *attemptsField;
 }
 
 @end
 
 @implementation AccountViewController
-
-- (IBAction)buyAttepmts:(id)sender {
-}
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -35,19 +29,24 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     context = [appDelegate managedObjectContext];
     
+    [self setUserProperties];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [[[self navigationController] navigationBar] setHidden:NO];
+    [[[self navigationController] navigationBar] setHidden:YES];
     
 }
 
--(void)completeFields{
+-(void)setUserProperties {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-
-    
+    usernameField.text     = [defaults objectForKey:@"username"];
+    emailField.text        = [defaults objectForKey:@"email"];
+    phoneNumberField.text  = [defaults objectForKey:@"phone"];
+    carNumberField.text    = [defaults objectForKey:@"car"];
+    attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
     
 }
 

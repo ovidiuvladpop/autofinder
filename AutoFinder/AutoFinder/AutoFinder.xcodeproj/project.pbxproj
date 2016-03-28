@@ -14,6 +14,7 @@
 		584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE701CA41B0400F6D8E4 /* LoginViewController.m */; };
 		584AEE881CA56B7800F6D8E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE871CA56B7800F6D8E4 /* User.m */; };
 		584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */; };
+		588006891CA93C6700662C50 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006881CA93C6700662C50 /* LogoutViewController.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		584AEE871CA56B7800F6D8E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		584AEE891CA57AF200F6D8E4 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		588006871CA93C6700662C50 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
+		588006881CA93C6700662C50 /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */,
 				584AEE891CA57AF200F6D8E4 /* AccountViewController.h */,
 				584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */,
+				588006871CA93C6700662C50 /* LogoutViewController.h */,
+				588006881CA93C6700662C50 /* LogoutViewController.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */,
 				584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */,
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
+				588006891CA93C6700662C50 /* LogoutViewController.m in Sources */,
 				584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

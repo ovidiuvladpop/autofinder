@@ -14,7 +14,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (IBAction)findDriverButonPressed:(id)sender {
@@ -28,6 +28,7 @@
 - (IBAction)improveMapButtonPressed:(id)sender {
     
 }
+
 
 
 @end

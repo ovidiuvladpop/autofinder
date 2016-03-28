@@ -10,7 +10,9 @@
 #import "FindDriverViewController.h"
 
 @interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation TakePhotoViewController 
@@ -53,20 +55,24 @@
     [alert show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(UIViewController *)previousViewController {
+    NSInteger numberOfViewControllers = self.navigationController.viewControllers.count;
+    
+    if (numberOfViewControllers < 2) {
+        return nil;
+    } else {
+        return [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers - 2];
+    }
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-   
         if (buttonIndex == 1) {
+            FindDriverViewController *previousViewController = [self previousViewController];
+            previousViewController.photoName = @"MyPhoto";
             [self.navigationController popViewControllerAnimated:YES];
         }
 }
-
-
-
-
-
-
 
 
 #pragma mark - Image Picker Controller delegate methods

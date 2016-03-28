@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *showParkingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *carNumberField;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
+@property (weak, nonatomic) NSString *photoName;
 
 - (IBAction)recieveNumber:(id)sender;
 

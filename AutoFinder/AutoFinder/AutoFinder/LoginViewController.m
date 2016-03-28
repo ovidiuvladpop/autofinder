@@ -30,20 +30,6 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
-    
-    //if ([[infoDictionary objectForKey:usernameField.text] isEqualToString:passwordField.text]) {
-      //  HomeViewController *homeViewController = [[HomeViewController alloc] init];
-      //  [self.navigationController pushViewController:homeViewController
-                                         //    animated:YES];
-  //  } else {
-    //    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Warning"
-                                               //        message:@"Incorrect username or password !"
-                                                //      delegate:self
-                                           //  cancelButtonTitle:@"Dismiss"
-                                          //   otherButtonTitles:nil];
-      //  [alert show];
-   // }
-    
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
                                                   inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc]init];
@@ -67,17 +53,37 @@
         {
             NSString *username;
             NSString *password;
+            NSString *email;
+            NSString *phone;
+            NSString *car;
+            NSNumber *attempts;
             
             for(NSManagedObjectContext *obj in matchingData) {
                 username = [obj valueForKey:@"username"];
                 password = [obj valueForKey:@"password"];
+                email    = [obj valueForKey:@"email"];
+                phone    = [obj valueForKey:@"phone"];
+                car      = [obj valueForKey:@"car"];
+                attempts = [obj valueForKey:@"attempts"];
             }
+            
+            [self saveUser:username withPassword:password email:email phoneNumber:phone carNumber:car andAttempts:attempts];
             [self performSegueWithIdentifier:@"loginSegue" sender:self];
         }
 }
 
-
-
+- (void)saveUser:(NSString *)username withPassword:(NSString *)password email:(NSString *)email phoneNumber:(NSString *)phone carNumber:(NSString *)car andAttempts:(NSNumber *)attempts{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:username forKey:@"username"];
+    [defaults setObject:password forKey:@"password"];
+    [defaults setObject:email    forKey:@"email"];
+    [defaults setObject:phone    forKey:@"phone"];
+    [defaults setObject:car      forKey:@"car"];
+    [defaults setObject:attempts forKey:@"attempts"];
+    
+    [defaults synchronize];
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
