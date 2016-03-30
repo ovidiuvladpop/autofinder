@@ -7,9 +7,12 @@
 //
 
 #import "LogoutViewController.h"
-#import "HomeViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface LogoutViewController () <UIAlertViewDelegate>
+@interface LogoutViewController () <UIAlertViewDelegate> {
+    __weak IBOutlet UIButton *logoutButton;
+}
 
 @end
 
@@ -17,26 +20,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self makeRoundButtons:logoutButton];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 #pragma mark - Actions
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (IBAction)logout:(id)sender {
+    
     [[[self navigationController] navigationBar] setHidden:YES];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to logout ?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     [alert show];
-
 }
+
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-  
     if (buttonIndex == 1) {
         [self.navigationController popViewControllerAnimated:YES];
     }
-    
 }
 
 @end

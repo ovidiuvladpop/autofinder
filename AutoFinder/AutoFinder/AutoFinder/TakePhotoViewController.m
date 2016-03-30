@@ -8,6 +8,7 @@
 
 #import "TakePhotoViewController.h"
 #import "FindDriverViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 

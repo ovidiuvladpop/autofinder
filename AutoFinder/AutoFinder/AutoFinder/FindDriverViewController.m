@@ -8,47 +8,80 @@
 
 #import "FindDriverViewController.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FindDriverViewController(){
     NSManagedObjectContext *context;
+    __weak IBOutlet UIButton *findDriverButton;
+    __weak IBOutlet UIButton *sendPhotoButton;
 }
 @end
 
 @implementation FindDriverViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
+    context = [appdelegate managedObjectContext];
+    
+    [self roundButton:self.takePhotoButton];
+    [self roundButton:self.sendButton];
+    [self makeRoundButtons:findDriverButton];
+    [self makeRoundButtons:sendPhotoButton];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+#pragma mark - Actions
+
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
+
 - (IBAction)recieveNumber:(id)sender {
     
     if ([[self photoName] isEqualToString:@"MyPhoto"]) {
-        if([self checkCarNumbeField]) {
-            NSLog(@"%@", self.photoName);
-            NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
-                                                          inManagedObjectContext:context];
-            NSFetchRequest *request = [[NSFetchRequest alloc]init];
-            [request setEntity:entitydesc];
+        if ([self checkCarNumbeField]) {
+            if ([self checkAttempts]) {
+                NSLog(@"%@", self.photoName);
+                NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
+                                                              inManagedObjectContext:context];
+                NSFetchRequest *request = [[NSFetchRequest alloc]init];
+                [request setEntity:entitydesc];
     
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"car like %@", [[self carNumberField] text]];
-            [request setPredicate:predicate];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"car like %@", [[self carNumberField] text]];
+                [request setPredicate:predicate];
     
-            NSError *error;
-            NSArray *matchingData=[context executeFetchRequest:request
-                                                 error:&error];
+                NSError *error;
+                NSArray *matchingData=[context executeFetchRequest:request
+                                                             error:&error];
     
-            if(matchingData.count <= 0){
-                UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"We are sorry"
-                                                           message:@"We have not found any number!"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Dismiss"
-                                                 otherButtonTitles:nil];
-                [alert show];
-            } else {
-                NSString *phoneNumber;
+                if(matchingData.count <= 0){
+                    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"We are sorry"
+                                                                   message:@"We have not found any number!"
+                                                                  delegate:self
+                                                         cancelButtonTitle:@"Dismiss"
+                                                         otherButtonTitles:nil];
+                    [alert show];
+                } else {
+                    NSString *phoneNumber;
         
-                for(NSManagedObjectContext *obj in matchingData) {
-                    phoneNumber = [obj valueForKey:@"phone"];
-                }
+                    for(NSManagedObjectContext *obj in matchingData) {
+                        phoneNumber = [obj valueForKey:@"phone"];
+                    }
        
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number" message:phoneNumber delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-            [alert show];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number" message:phoneNumber delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                    [alert show];
+                    [self decreaseAttempts];
+                }
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have no more attempts!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                [alert show];
             }
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Car number not found !" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
@@ -61,9 +94,41 @@
 }
 
 
--(void)decreaseAttempts{
+- (void)decreaseAttempts{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", [defaults objectForKey:@"email"]];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    NSManagedObject* obj = [results objectAtIndex:0];
+    NSNumber *numberOfAttempts = [NSNumber numberWithInt:([[obj valueForKey:@"attempts"] intValue] - 1)];
+
+    [obj setValue:numberOfAttempts forKey:@"attempts"];
+    [context save:&error];
+    [self updateDefaultUser:numberOfAttempts];
 }
+
+- (BOOL)checkAttempts {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"attempts"] intValue] < 1) {
+        return false;
+    }
+    return true;
+}
+
+- (void)updateDefaultUser:(NSNumber *)numberOfAttempts {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:numberOfAttempts forKey:@"attempts"];
+    [defaults synchronize];
+}
+
 
 - (BOOL)checkCarNumbeField {
     if ([[self carNumberField] text] == nil) {
@@ -72,21 +137,10 @@
         return YES;
 }
 
--(void)roundButton:(UIButton*)button {
+- (void)roundButton:(UIButton*)button {
     CALayer *btnLayer = [button layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:10.0f];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self roundButton:self.takePhotoButton];
-    [self roundButton:self.sendButton];
-    
-    
-    
-    AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
-    context = [appdelegate managedObjectContext];
-}
 @end

@@ -9,15 +9,46 @@
 #import "CreateAccountViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @interface CreateAccountViewController () {
     NSManagedObjectContext *context;
+    __weak IBOutlet UIButton *createAccountButton;
 }
 
 @end
 
 @implementation CreateAccountViewController
+
+- (void)viewDidLoad{
+    
+    [super viewDidLoad];
+    [[self usernameField] setDelegate:self];
+    [[self passwordField] setDelegate:self];
+    [[self emailField] setDelegate:self];
+    [[self phoneNumberField] setDelegate:self];
+    [[self carNumberField] setDelegate:self];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    context = [appDelegate managedObjectContext];
+    
+    UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                         action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    [self makeRoundButtons:createAccountButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[[self navigationController] navigationBar] setHidden:NO];
+}
+
+#pragma mark - Actions
+
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     
@@ -73,25 +104,4 @@
     return NO;
 }
 
-- (void)viewDidLoad{
-    
-    [super viewDidLoad];
-    [[self usernameField] setDelegate:self];
-    [[self passwordField] setDelegate:self];
-    [[self emailField] setDelegate:self];
-    [[self phoneNumberField] setDelegate:self];
-    [[self carNumberField] setDelegate:self];
-   
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
-    
-    UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                         action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[[self navigationController] navigationBar] setHidden:NO];
-}
 @end

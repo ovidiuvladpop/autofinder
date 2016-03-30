@@ -7,10 +7,24 @@
 //
 
 #import "HomeViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
+@interface HomeViewController() {
+    __weak IBOutlet UIButton *findDriverButton;
+    __weak IBOutlet UIButton *findParkingButton;
+    __weak IBOutlet UIButton *improveMapButton;
+}
+
+@end
 
 @implementation HomeViewController
 
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self makeRoundButtons:findDriverButton];
+    [self makeRoundButtons:findParkingButton];
+    [self makeRoundButtons:improveMapButton];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -29,6 +43,9 @@
     
 }
 
-
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
 
 @end

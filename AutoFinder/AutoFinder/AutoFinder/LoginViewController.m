@@ -10,16 +10,39 @@
 #import "HomeViewController.h"
 #import "CreateAccountViewController.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface LoginViewController(){
     NSManagedObjectContext *context;
+    __weak IBOutlet UIButton *loginButton;
+    
 }
 @end
 
 
 @implementation LoginViewController
 
+#pragma mark - Actions
+
+- (void)viewDidLoad{
+    AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
+    context = [appdelegate managedObjectContext];
+    
+    [super viewDidLoad];
+    [[self usernameField] setDelegate:self];
+    [[self passwordField] setDelegate:self];
+    [self makeRoundButtons:loginButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[[self navigationController] navigationBar] setHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 -(IBAction)notButton:(id)sender{
     [self performSegueWithIdentifier:@"createAccountSegue" sender:self];
@@ -85,22 +108,9 @@
     [defaults synchronize];
 }
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
-    [[self usernameField] setDelegate:self];
-    [[self passwordField] setDelegate:self];
-    
-    AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
-    context = [appdelegate managedObjectContext];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[[self navigationController] navigationBar] setHidden:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
 }
 
 @end
