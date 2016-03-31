@@ -13,10 +13,10 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface LoginViewController(){
+@interface LoginViewController() {
     NSManagedObjectContext *context;
     __weak IBOutlet UIButton *loginButton;
-    
+    __weak UITextField *activeField;
 }
 @end
 
@@ -32,17 +32,101 @@
     [super viewDidLoad];
     [[self usernameField] setDelegate:self];
     [[self passwordField] setDelegate:self];
+    
+    
+    CGRect frame = loginButton.frame;
+    
+    float height = CGRectGetMaxY(frame) + 20.0;
+    
+    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     [self makeRoundButtons:loginButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [[[self navigationController] navigationBar] setHidden:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self registerForKeyboardNotifications];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self unRegisterForKeyboardNotifications];
+}
+
+
+
+#pragma mark - Keyboard Notifications
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWillShowNotification:(NSNotification*)aNotification
+{
+    float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    
+    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]))
+    {
+        height =  [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.width;
+    }
+    
+    _scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
+    _scrollView.scrollIndicatorInsets = _scrollView.contentInset;
+    
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillHideNotification:(NSNotification*)aNotification
+{
+    
+    if(![_usernameField isFirstResponder]) {
+        self.scrollView.contentOffset = CGPointZero;
+    }
+       _scrollView.contentInset = UIEdgeInsetsZero;
+    _scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+
+    
+    if (textField == _passwordField){
+        _scrollView.contentOffset =  CGPointMake(0.0, _usernameField.frame.origin.y + 1.0);
+    }
+}
+
+- (void)dismissKeyboard {
+    [[self usernameField] resignFirstResponder];
+    [[self passwordField] resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [[self usernameField] resignFirstResponder];
+    [[self passwordField] resignFirstResponder];
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)unRegisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 
 -(IBAction)notButton:(id)sender{
     [self performSegueWithIdentifier:@"createAccountSegue" sender:self];

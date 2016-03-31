@@ -10,8 +10,9 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface FindDriverViewController(){
+@interface FindDriverViewController() <UIAlertViewDelegate> {
     NSManagedObjectContext *context;
+    NSString *phoneNumber;
     __weak IBOutlet UIButton *findDriverButton;
     __weak IBOutlet UIButton *sendPhotoButton;
 }
@@ -69,13 +70,11 @@
                                                          otherButtonTitles:nil];
                     [alert show];
                 } else {
-                    NSString *phoneNumber;
-        
                     for(NSManagedObjectContext *obj in matchingData) {
                         phoneNumber = [obj valueForKey:@"phone"];
                     }
        
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number" message:phoneNumber delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number" message:phoneNumber delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call", nil];
                     [alert show];
                     [self decreaseAttempts];
                 }
@@ -90,6 +89,14 @@
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Photo not selected !" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
         [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSString *phoneNumberToCall = [@"tel://" stringByAppendingString:phoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberToCall]];
     }
 }
 

@@ -35,6 +35,9 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     context = [appDelegate managedObjectContext];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     [self makeRoundButtons:buyAttemptsButton];
     [self makeRoundButtons:editAccountButton];
     [self makeRoundButtons:saveAccountButton];
@@ -49,6 +52,21 @@
 }
 
 #pragma mark - Actions
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [usernameField resignFirstResponder];
+    [emailField resignFirstResponder];
+    [phoneNumberField resignFirstResponder];
+    [carNumberField resignFirstResponder];
+    return NO;
+}
+
+- (void)dismissKeyboard {
+    [usernameField resignFirstResponder];
+    [emailField resignFirstResponder];
+    [phoneNumberField resignFirstResponder];
+    [carNumberField resignFirstResponder];
+}
 
 - (void)makeRoundButtons:(UIButton *)button {
     button.layer.cornerRadius = 10;
