@@ -11,10 +11,12 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface FindDriverViewController() <UIAlertViewDelegate> {
+    
     NSManagedObjectContext *context;
     NSString *phoneNumber;
     __weak IBOutlet UIButton *findDriverButton;
     __weak IBOutlet UIButton *sendPhotoButton;
+    
 }
 @end
 
@@ -92,8 +94,7 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSString *phoneNumberToCall = [@"tel://" stringByAppendingString:phoneNumber];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberToCall]];
@@ -101,7 +102,7 @@
 }
 
 
-- (void)decreaseAttempts{
+- (void)decreaseAttempts { 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
     

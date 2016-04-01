@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate> {
+    
     NSDictionary *infoDictionary;
 }
 
@@ -17,13 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *autoLabel;
 
-
-
-
-
 - (IBAction)loginButtonPressed:(id)sender;
-
 - (IBAction)notButton:(id)sender;
-
 
 @end

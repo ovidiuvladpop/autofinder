@@ -23,7 +23,7 @@
 
 @implementation TakePhotoViewController 
 
--(void)viewDidLoad{
+-(void)viewDidLoad {
     [super viewDidLoad];
     
     [self makeRoundButtons:takePhotoButton];
@@ -31,7 +31,7 @@
     [self makeRoundButtons:sendPhotoButton];
 }
 
--(void)didReceiveMemoryWarning{
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
@@ -42,7 +42,7 @@
     button.clipsToBounds = YES;
 }
 
--(IBAction)selectPhotoButton:(id)sender{
+-(IBAction)selectPhotoButton:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate=self;
     picker.allowsEditing = YES;
@@ -63,7 +63,7 @@
     
 }
 
--(IBAction)sendPhoto:(id)sender{
+-(IBAction)sendPhoto:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
                           @"Thank you" message:@"The photo is selected" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
     
@@ -80,10 +80,9 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
         if (buttonIndex == 1) {
-            FindDriverViewController *previousViewController = [self previousViewController];
+            FindDriverViewController *previousViewController = (FindDriverViewController *)[self previousViewController];
             previousViewController.photoName = @"MyPhoto";
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -92,7 +91,7 @@
 
 #pragma mark - Image Picker Controller delegate methods
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image=chosenImage;
@@ -100,7 +99,7 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

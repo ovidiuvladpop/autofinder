@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface LogoutViewController () <UIAlertViewDelegate> {
+    
     __weak IBOutlet UIButton *logoutButton;
 }
 
@@ -42,9 +43,10 @@
     button.clipsToBounds = YES;
 }
 
+#pragma mark - UIAlertView delegate's method
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+//Called when Yes button is pressed
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self.navigationController popViewControllerAnimated:YES];
     }

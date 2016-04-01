@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface HomeViewController() {
+    
     __weak IBOutlet UIButton *findDriverButton;
     __weak IBOutlet UIButton *findParkingButton;
     __weak IBOutlet UIButton *improveMapButton;
@@ -30,6 +31,8 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
 }
+
+#pragma mark - Actions
 
 - (IBAction)findDriverButonPressed:(id)sender {
     

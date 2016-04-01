@@ -92,9 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				584AEE871CA56B7800F6D8E4 /* User.m */,
+				584AEE861CA56B7800F6D8E4 /* User.h */,
 				58236ED91CAE7F4B0037AE82 /* FindParkingViewController.h */,
 				58236EDA1CAE7F4B0037AE82 /* FindParkingViewController.m */,
-				584AEE861CA56B7800F6D8E4 /* User.h */,
 				584AEE6B1CA41B0400F6D8E4 /* CreateAccountViewController.h */,
 				584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */,
 				584AEE6D1CA41B0400F6D8E4 /* HomeViewController.h */,

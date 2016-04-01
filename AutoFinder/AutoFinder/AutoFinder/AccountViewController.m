@@ -29,7 +29,7 @@
 
 @implementation AccountViewController
 
--(void)viewDidLoad{
+-(void)viewDidLoad {
     [super viewDidLoad];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -43,7 +43,7 @@
     [self makeRoundButtons:saveAccountButton];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:YES];
@@ -53,7 +53,7 @@
 
 #pragma mark - Actions
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [usernameField resignFirstResponder];
     [emailField resignFirstResponder];
     [phoneNumberField resignFirstResponder];
@@ -83,7 +83,6 @@
     
 }
 
-
 - (IBAction)saveButton:(id)sender {
     
     [save setHidden:YES];
@@ -96,8 +95,6 @@
     [self updateUser];
     [self updateDefaultUser];
 }
-
-
 
 - (IBAction)buyAttempts:(id)sender {
     
@@ -141,7 +138,7 @@
     [defaults synchronize];
 }
 
--(void)updateUser{
+-(void)updateUser {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];

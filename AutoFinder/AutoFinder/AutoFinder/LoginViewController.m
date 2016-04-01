@@ -14,20 +14,20 @@
 
 
 @interface LoginViewController() {
+    
     NSManagedObjectContext *context;
     __weak IBOutlet UIButton *loginButton;
     __weak UITextField *activeField;
     __weak IBOutlet UIButton *not;
    
-    
-        
 }
+
 @end
 
 
 @implementation LoginViewController
 
-#pragma mark - Actions
+
 
 - (void)viewDidLoad{
     AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
@@ -40,7 +40,7 @@
     
     CGRect frame = loginButton.frame;
     
-    float height = CGRectGetMaxY(frame) + 5.0;
+    //float height = CGRectGetMaxY(frame) + 5.0;
     
     //_scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
     _scrollView.contentSize = CGSizeMake(600, 800);
@@ -66,13 +66,14 @@
     [self unRegisterForKeyboardNotifications];
 }
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 #pragma mark - Keyboard Notifications
 
 // Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWillShowNotification:(NSNotification*)aNotification
-{
+- (void)keyboardWillShowNotification:(NSNotification*)aNotification {
     float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     
     
@@ -83,8 +84,7 @@
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillHideNotification:(NSNotification*)aNotification
-{
+- (void)keyboardWillHideNotification:(NSNotification*)aNotification {
     
     if(![_usernameField isFirstResponder]) {
         self.scrollView.contentOffset = CGPointZero;
@@ -93,28 +93,6 @@
     _scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-
-    
-    if (textField == _passwordField){
-        _scrollView.contentOffset =  CGPointMake(0.0, _autoLabel.frame.origin.y - 1.0);
-    }
-}
-
-- (void)dismissKeyboard {
-    [[self usernameField] resignFirstResponder];
-    [[self passwordField] resignFirstResponder];
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [[self usernameField] resignFirstResponder];
-    [[self passwordField] resignFirstResponder];
-    return NO;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
@@ -129,12 +107,32 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+#pragma mark - Actions
 
--(IBAction)notButton:(id)sender{
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+
+    if (textField == _passwordField){
+        _scrollView.contentOffset =  CGPointMake(0.0, _autoLabel.frame.origin.y - 1.0);
+    }
+}
+
+- (void)dismissKeyboard {
+    [[self usernameField] resignFirstResponder];
+    [[self passwordField] resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[self usernameField] resignFirstResponder];
+    [[self passwordField] resignFirstResponder];
+    return NO;
+}
+
+-(IBAction)notButton:(id)sender {
     [self performSegueWithIdentifier:@"createAccountSegue" sender:self];
     
 }
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return NO;
 }
 
@@ -181,7 +179,7 @@
         }
 }
 
-- (void)saveUser:(NSString *)username withPassword:(NSString *)password email:(NSString *)email phoneNumber:(NSString *)phone carNumber:(NSString *)car andAttempts:(NSNumber *)attempts{
+- (void)saveUser:(NSString *)username withPassword:(NSString *)password email:(NSString *)email phoneNumber:(NSString *)phone carNumber:(NSString *)car andAttempts:(NSNumber *)attempts {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:username forKey:@"username"];

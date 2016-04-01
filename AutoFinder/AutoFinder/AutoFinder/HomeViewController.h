@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController {
-
-}
+@interface HomeViewController : UIViewController 
 
 -(IBAction)findDriverButonPressed:(id)sender;
 -(IBAction)findParkingButtonPresse:(id)sender;

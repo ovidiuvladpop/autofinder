@@ -12,66 +12,49 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CreateAccountViewController () {
+    
     NSManagedObjectContext *context;
     __weak IBOutlet UIButton *createAccountButton;
     __weak UITextField *activeField;
+    
 }
 
 @end
 
 @implementation CreateAccountViewController
 
-
-
-
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     
     [super viewDidLoad];
     [[self usernameField] setDelegate:self];
     [[self passwordField] setDelegate:self];
     [[self phoneNumberField] setDelegate:self];
     
-    
-    
     CGRect frame = createAccountButton.frame;
-    
     float height = CGRectGetMaxY(frame) + 20.0;
     
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
-    
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     context = [appDelegate managedObjectContext];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];}
-
-
+    [self.view addGestureRecognizer:tap];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:NO];
 }
 
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [self registerForKeyboardNotifications];
 }
 
-
-
 - (void)viewDidDisappear:(BOOL)animated
 {
     [self unRegisterForKeyboardNotifications];
-}
-
-- (void)dismissKeyboard {
-    [[self usernameField] resignFirstResponder];
-    [[self passwordField] resignFirstResponder];
-    [[self phoneNumberField] resignFirstResponder];
-    [[self carNumberField] resignFirstResponder];
-    [[self emailField] resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,26 +63,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)unRegisterForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
 #pragma mark - Keyboard Notifications
 
 // Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWillShowNotification:(NSNotification*)aNotification
-{
+- (void)keyboardWillShowNotification:(NSNotification*)aNotification {
     float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     
     if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]))
@@ -113,8 +80,7 @@
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillHideNotification:(NSNotification*)aNotification
-{
+- (void)keyboardWillHideNotification:(NSNotification*)aNotification {
     
     if(![_usernameField isFirstResponder]) {
         self.scrollView.contentOffset = CGPointZero;
@@ -129,6 +95,19 @@
     _scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
 }
 
+- (void)registerForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)unRegisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 #pragma mark - Actions
 
 - (void)makeRoundButtons:(UIButton *)button {
@@ -136,17 +115,17 @@
     button.clipsToBounds = YES;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    if (textField == _emailField){
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (textField == _emailField) {
         _scrollView.contentOffset =  CGPointMake(0.0, _passwordField.frame.origin.y + 10.0);
     }
     
-    if (textField == _carNumberField){
+    if (textField == _carNumberField) {
         _scrollView.contentOffset =  CGPointMake(0.0, _passwordField.frame.origin.y + 10.0);
     }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [[self usernameField] resignFirstResponder];
     [[self passwordField] resignFirstResponder];
     [[self emailField] resignFirstResponder];
@@ -154,8 +133,6 @@
     [[self carNumberField] resignFirstResponder];
     return NO;
 }
-
-
 
 -(IBAction)createAccountButtonPressed:(id)sender{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -172,15 +149,23 @@
     NSError *error;
     BOOL isSaved = [appDelegate.managedObjectContext save:&error];
     NSLog(@"Successfully saved flag: %d", isSaved);
+    
     if (isSaved) {
-               [[self navigationController] popViewControllerAnimated:YES];
+        [[self navigationController] popViewControllerAnimated:YES];
 
     }
-    
   }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return NO;
+}
+
+- (void)dismissKeyboard {
+    [[self usernameField] resignFirstResponder];
+    [[self passwordField] resignFirstResponder];
+    [[self phoneNumberField] resignFirstResponder];
+    [[self carNumberField] resignFirstResponder];
+    [[self emailField] resignFirstResponder];
 }
 
 @end
