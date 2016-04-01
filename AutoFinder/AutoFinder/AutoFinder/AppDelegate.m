@@ -20,8 +20,7 @@
    
     
     
- //[[SKMapsService sharedInstance] initializeSKMapsWithAPIKey:@"e8df4c2359b024578c2d037efe1dac17dee107da0b95ae895d4f34e8def14ea0" settings:settings];
-
+ 
     return YES;
 }
 

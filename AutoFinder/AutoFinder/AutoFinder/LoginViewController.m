@@ -17,6 +17,10 @@
     NSManagedObjectContext *context;
     __weak IBOutlet UIButton *loginButton;
     __weak UITextField *activeField;
+    __weak IBOutlet UIButton *not;
+   
+    
+        
 }
 @end
 
@@ -36,9 +40,10 @@
     
     CGRect frame = loginButton.frame;
     
-    float height = CGRectGetMaxY(frame) + 20.0;
+    float height = CGRectGetMaxY(frame) + 5.0;
     
-    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
+    //_scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
+    _scrollView.contentSize = CGSizeMake(600, 800);
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -70,10 +75,7 @@
 {
     float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     
-    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]))
-    {
-        height =  [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.width;
-    }
+    
     
     _scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
     _scrollView.scrollIndicatorInsets = _scrollView.contentInset;
@@ -95,7 +97,7 @@
 
     
     if (textField == _passwordField){
-        _scrollView.contentOffset =  CGPointMake(0.0, _usernameField.frame.origin.y + 1.0);
+        _scrollView.contentOffset =  CGPointMake(0.0, _autoLabel.frame.origin.y - 1.0);
     }
 }
 

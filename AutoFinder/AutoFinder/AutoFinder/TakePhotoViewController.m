@@ -10,7 +10,12 @@
 #import "FindDriverViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
+@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {
+    
+    __weak IBOutlet UIButton *takePhotoButton;
+    __weak IBOutlet UIButton *selectPhotoButton;
+    __weak IBOutlet UIButton *sendPhotoButton;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -20,6 +25,10 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    [self makeRoundButtons:takePhotoButton];
+    [self makeRoundButtons:selectPhotoButton];
+    [self makeRoundButtons:sendPhotoButton];
 }
 
 -(void)didReceiveMemoryWarning{
@@ -27,6 +36,11 @@
 }
 
 #pragma mark - Actions
+
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
 
 -(IBAction)selectPhotoButton:(id)sender{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
