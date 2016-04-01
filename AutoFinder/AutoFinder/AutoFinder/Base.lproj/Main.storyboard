@@ -92,7 +92,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="hPn-jZ-6N5">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="hPn-jZ-6N5" customClass="SKMapVIew">
                                 <rect key="frame" x="0.0" y="325" width="320" height="195"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
@@ -141,6 +141,7 @@
                         <outlet property="findDriverButton" destination="qJf-g9-aQq" id="UpV-C3-Ed1"/>
                         <outlet property="findParkingButton" destination="sjA-aU-kJm" id="N5J-oZ-i1M"/>
                         <outlet property="improveMapButton" destination="6xC-OF-crM" id="ser-gb-PX8"/>
+                        <outlet property="mapView" destination="hPn-jZ-6N5" id="PvE-7b-KXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jH3-cC-7yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,7 +227,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="zYP-hh-F1z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="zYP-hh-F1z">
                                 <rect key="frame" x="30" y="97" width="259" height="266"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

@@ -17,7 +17,7 @@
     __weak IBOutlet UIButton *sendPhotoButton;
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -94,9 +94,10 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.imageView.image=chosenImage;
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.imageView.image = chosenImage;
+    }];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

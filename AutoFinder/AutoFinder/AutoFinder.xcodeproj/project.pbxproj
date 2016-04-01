@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		58236EDB1CAE7F4B0037AE82 /* FindParkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58236EDA1CAE7F4B0037AE82 /* FindParkingViewController.m */; };
 		58236EEE1CAE8BAE0037AE82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236EED1CAE8BAE0037AE82 /* MapKit.framework */; };
+		58236EF81CAE9EF60037AE82 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58236EF71CAE9EF60037AE82 /* User.m */; };
+		58236EFE1CAEA0AD0037AE82 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */; };
+		58236F001CAEA1D90037AE82 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236EFF1CAEA1D90037AE82 /* SKMaps.framework */; };
+		58236F021CAEA1FB0037AE82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F011CAEA1FA0037AE82 /* UIKit.framework */; };
+		58236F041CAEA2020037AE82 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F031CAEA2020037AE82 /* CoreLocation.framework */; };
+		58236F061CAEA2090037AE82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F051CAEA2090037AE82 /* Foundation.framework */; };
+		58236F081CAEA2140037AE82 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F071CAEA2140037AE82 /* OpenGLES.framework */; };
+		58236F0A1CAEA21B0037AE82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F091CAEA21B0037AE82 /* QuartzCore.framework */; };
+		58236F0C1CAEA2260037AE82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F0B1CAEA2260037AE82 /* CoreGraphics.framework */; };
+		58236F0E1CAEA22D0037AE82 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F0D1CAEA22D0037AE82 /* CoreMotion.framework */; };
+		58236F101CAEA2470037AE82 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F0F1CAEA2460037AE82 /* libz.tbd */; };
+		58236F121CAEA24F0037AE82 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F111CAEA24E0037AE82 /* libc++.tbd */; };
+		58236F141CAEA5F70037AE82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F131CAEA5F70037AE82 /* AVFoundation.framework */; };
 		584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */; };
 		584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */; };
 		584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */; };
 		584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */; };
 		584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE701CA41B0400F6D8E4 /* LoginViewController.m */; };
-		584AEE881CA56B7800F6D8E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE871CA56B7800F6D8E4 /* User.m */; };
 		584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */; };
 		588006891CA93C6700662C50 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006881CA93C6700662C50 /* LogoutViewController.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
@@ -30,6 +42,19 @@
 		58236ED91CAE7F4B0037AE82 /* FindParkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindParkingViewController.h; path = ../FindParkingViewController.h; sourceTree = "<group>"; };
 		58236EDA1CAE7F4B0037AE82 /* FindParkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindParkingViewController.m; path = ../FindParkingViewController.m; sourceTree = "<group>"; };
 		58236EED1CAE8BAE0037AE82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		58236EF71CAE9EF60037AE82 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SKMaps.bundle; path = ../../../../Downloads/SKMaps_iOS_2/SKMapsResources/SKMaps.bundle; sourceTree = "<group>"; };
+		58236EFF1CAEA1D90037AE82 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
+		58236F011CAEA1FA0037AE82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		58236F031CAEA2020037AE82 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		58236F051CAEA2090037AE82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58236F071CAEA2140037AE82 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		58236F091CAEA21B0037AE82 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		58236F0B1CAEA2260037AE82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		58236F0D1CAEA22D0037AE82 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		58236F0F1CAEA2460037AE82 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		58236F111CAEA24E0037AE82 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		58236F131CAEA5F70037AE82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		584AEE651CA2979B00F6D8E4 /* FindDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDriverViewController.h; sourceTree = "<group>"; };
 		584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDriverViewController.m; sourceTree = "<group>"; };
 		584AEE681CA29B1900F6D8E4 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
@@ -41,7 +66,6 @@
 		584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		584AEE701CA41B0400F6D8E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		584AEE861CA56B7800F6D8E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		584AEE871CA56B7800F6D8E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		584AEE891CA57AF200F6D8E4 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		588006871CA93C6700662C50 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
@@ -64,7 +88,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58236F141CAEA5F70037AE82 /* AVFoundation.framework in Frameworks */,
+				58236F121CAEA24F0037AE82 /* libc++.tbd in Frameworks */,
+				58236F101CAEA2470037AE82 /* libz.tbd in Frameworks */,
+				58236F0E1CAEA22D0037AE82 /* CoreMotion.framework in Frameworks */,
+				58236F0C1CAEA2260037AE82 /* CoreGraphics.framework in Frameworks */,
+				58236F0A1CAEA21B0037AE82 /* QuartzCore.framework in Frameworks */,
+				58236F081CAEA2140037AE82 /* OpenGLES.framework in Frameworks */,
+				58236F061CAEA2090037AE82 /* Foundation.framework in Frameworks */,
+				58236F041CAEA2020037AE82 /* CoreLocation.framework in Frameworks */,
+				58236F021CAEA1FB0037AE82 /* UIKit.framework in Frameworks */,
 				58236EEE1CAE8BAE0037AE82 /* MapKit.framework in Frameworks */,
+				58236F001CAEA1D90037AE82 /* SKMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +109,18 @@
 		D0994EBF1C947AA8009A46AE = {
 			isa = PBXGroup;
 			children = (
+				58236F131CAEA5F70037AE82 /* AVFoundation.framework */,
+				58236F111CAEA24E0037AE82 /* libc++.tbd */,
+				58236F0F1CAEA2460037AE82 /* libz.tbd */,
+				58236F0D1CAEA22D0037AE82 /* CoreMotion.framework */,
+				58236F0B1CAEA2260037AE82 /* CoreGraphics.framework */,
+				58236F091CAEA21B0037AE82 /* QuartzCore.framework */,
+				58236F071CAEA2140037AE82 /* OpenGLES.framework */,
+				58236F051CAEA2090037AE82 /* Foundation.framework */,
+				58236F031CAEA2020037AE82 /* CoreLocation.framework */,
+				58236F011CAEA1FA0037AE82 /* UIKit.framework */,
+				58236EFF1CAEA1D90037AE82 /* SKMaps.framework */,
+				58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */,
 				58236EED1CAE8BAE0037AE82 /* MapKit.framework */,
 				D0994ECA1C947AA9009A46AE /* AutoFinder */,
 				D0994EC91C947AA9009A46AE /* Products */,
@@ -91,7 +138,7 @@
 		D0994ECA1C947AA9009A46AE /* AutoFinder */ = {
 			isa = PBXGroup;
 			children = (
-				584AEE871CA56B7800F6D8E4 /* User.m */,
+				58236EF71CAE9EF60037AE82 /* User.m */,
 				584AEE861CA56B7800F6D8E4 /* User.h */,
 				58236ED91CAE7F4B0037AE82 /* FindParkingViewController.h */,
 				58236EDA1CAE7F4B0037AE82 /* FindParkingViewController.m */,
@@ -198,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58236EFE1CAEA0AD0037AE82 /* SKMaps.bundle in Resources */,
 				D0994EDE1C947AA9009A46AE /* LaunchScreen.storyboard in Resources */,
 				D0994EDB1C947AA9009A46AE /* Assets.xcassets in Resources */,
 				D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */,
@@ -211,13 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58236EF81CAE9EF60037AE82 /* User.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
 				584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */,
 				D0994ED31C947AA9009A46AE /* ViewController.m in Sources */,
 				584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */,
 				D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */,
 				584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */,
-				584AEE881CA56B7800F6D8E4 /* User.m in Sources */,
 				584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */,
 				584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */,
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
@@ -335,15 +383,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AutoFinder",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AutoFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skobbler.HybridTestNavx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "964fa6f8-37c0-4ae0-9032-cb37bcb4e0e0";
@@ -356,15 +405,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AutoFinder",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AutoFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skobbler.HybridTestNavx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "964fa6f8-37c0-4ae0-9032-cb37bcb4e0e0";

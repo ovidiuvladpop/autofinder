@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface HomeViewController : UIViewController 
+@interface HomeViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation* currentLocation;
 
 -(IBAction)findDriverButonPressed:(id)sender;
 -(IBAction)findParkingButtonPresse:(id)sender;

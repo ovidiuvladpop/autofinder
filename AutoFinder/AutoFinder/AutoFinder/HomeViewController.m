@@ -8,13 +8,17 @@
 
 #import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <SKMaps/SKMaps.h>
 
-@interface HomeViewController() {
+
+@interface HomeViewController() <SKMapViewDelegate> {
     
     __weak IBOutlet UIButton *findDriverButton;
     __weak IBOutlet UIButton *findParkingButton;
     __weak IBOutlet UIButton *improveMapButton;
+    
 }
+@property (nonatomic, strong) IBOutlet SKMapView *mapView;
 
 @end
 
@@ -25,6 +29,18 @@
     [self makeRoundButtons:findDriverButton];
     [self makeRoundButtons:findParkingButton];
     [self makeRoundButtons:improveMapButton];
+    
+    self.mapView = [[SKMapView alloc] initWithFrame:CGRectMake( self.mapView.frame.origin.x, self.mapView.frame.origin.y, CGRectGetWidth(self.mapView.frame), CGRectGetHeight(self.mapView.frame) )];
+    [self.view addSubview:self.mapView];
+    self.mapView.delegate = self;
+    [self.mapView animateToZoomLevel:14];
+    [self.mapView centerOnCurrentPosition];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,6 +49,12 @@
 }
 
 #pragma mark - Actions
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    self.currentLocation = [locations lastObject];
+    // here we get the current location
+}
 
 - (IBAction)findDriverButonPressed:(id)sender {
     

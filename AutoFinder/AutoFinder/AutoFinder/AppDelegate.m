@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CreateAccountViewController.h"
+#import <SKMaps/SKMaps.h>
 
 @interface AppDelegate ()
 
@@ -17,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+   [[SKMapsService sharedInstance] initializeSKMapsWithAPIKey:@"e1b518431022f95e03a1c9c40548e67d" settings:nil];
     
     
  
