@@ -29,6 +29,11 @@
     [self makeRoundButtons:takePhotoButton];
     [self makeRoundButtons:selectPhotoButton];
     [self makeRoundButtons:sendPhotoButton];
+    [sendPhotoButton setHidden:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 -(void)didReceiveMemoryWarning {
@@ -98,6 +103,7 @@
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.image = chosenImage;
     }];
+    [sendPhotoButton setHidden:NO];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
