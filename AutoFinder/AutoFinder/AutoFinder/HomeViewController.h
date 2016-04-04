@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <SKMaps/SKMaps.h>
 
 @interface HomeViewController : UIViewController <CLLocationManagerDelegate>
 

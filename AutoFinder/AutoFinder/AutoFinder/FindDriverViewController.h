@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindDriverViewController : UIViewController
+@interface FindDriverViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *showParkingLabel;
+@property (strong, nonatomic) IBOutlet UILabel *showParkingLabel2;
+
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *carNumberField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;

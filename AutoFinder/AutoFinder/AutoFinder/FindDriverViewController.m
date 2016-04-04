@@ -16,6 +16,7 @@
     NSString *phoneNumber;
     __weak IBOutlet UIButton *findDriverButton;
     __weak IBOutlet UIButton *sendPhotoButton;
+    IBOutlet UIScrollView *scrollView;
     
 }
 @end
@@ -28,18 +29,92 @@
     AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
     
-    [self roundButton:self.takePhotoButton];
-    [self roundButton:self.sendButton];
+    [[self carNumberField] setDelegate:self];
+    
     [self makeRoundButtons:findDriverButton];
     [self makeRoundButtons:sendPhotoButton];
-
+    
+    //_scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
+    scrollView.contentSize = CGSizeMake(600, 800);
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self registerForKeyboardNotifications];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self unRegisterForKeyboardNotifications];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Keyboard Notifications
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWillShowNotification:(NSNotification*)aNotification {
+    float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    
+    
+    
+    scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
+    scrollView.scrollIndicatorInsets = scrollView.contentInset;
+    
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillHideNotification:(NSNotification*)aNotification {
+    
+    if(![_carNumberField isFirstResponder]) {
+        scrollView.contentOffset = CGPointZero;
+    }
+    scrollView.contentInset = UIEdgeInsetsZero;
+    scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+}
+
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)unRegisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 #pragma mark - Actions
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if (textField == _carNumberField){
+        scrollView.contentOffset =  CGPointMake(0.0, _showParkingLabel2.frame.origin.y - 1.0);
+    }
+}
+
+- (void)dismissKeyboard {
+    [[self carNumberField] resignFirstResponder];
+   
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[self carNumberField] resignFirstResponder];
+    return NO;
+}
 
 - (void)makeRoundButtons:(UIButton *)button {
     button.layer.cornerRadius = 10;
@@ -143,12 +218,6 @@
         return NO;
     }
         return YES;
-}
-
-- (void)roundButton:(UIButton*)button {
-    CALayer *btnLayer = [button layer];
-    [btnLayer setMasksToBounds:YES];
-    [btnLayer setCornerRadius:10.0f];
 }
 
 @end

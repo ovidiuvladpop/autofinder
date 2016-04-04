@@ -38,7 +38,7 @@
     [[self passwordField] setDelegate:self];
     
     
-    CGRect frame = loginButton.frame;
+    
     
     //float height = CGRectGetMaxY(frame) + 5.0;
     
