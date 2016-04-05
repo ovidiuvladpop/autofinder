@@ -44,6 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
+     self.title = @"Find driver";
 }
 
 - (void)viewDidAppear:(BOOL)animated
