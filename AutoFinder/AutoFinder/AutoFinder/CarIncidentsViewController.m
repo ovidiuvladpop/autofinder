@@ -12,10 +12,11 @@
 #import <SKMaps/SKAnnotation.h>
 #import <SKMaps/SKAnnotationView.h>
 #import "AppDelegate.h"
+#import "CarIncidentDetailViewController.h"
 
 @interface CarIncidentsViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {
     NSManagedObjectContext *context;
-    
+    NSManagedObject *object;
 }
 
 @property (nonatomic, strong) IBOutlet SKMapView *mapView;
@@ -24,6 +25,8 @@
 @end
 
 @implementation CarIncidentsViewController
+
+#pragma mark - Init methods
 
 - (instancetype)init
 {
@@ -46,6 +49,7 @@
     
     [self.locationManager startUpdatingLocation];
     self.mapView.delegate = self;
+    self.mapView.calloutView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,24 +67,28 @@
 
 #pragma mark - Actions
 
-- (void)showAnnotation:(CLLocation *)incidentLocation {
+- (void)showAnnotation:(CLLocation *)incidentLocation withObject:(NSManagedObject * )object{
+    
     SKAnnotation *annotation =[SKAnnotation annotation] ;
     annotation.location = incidentLocation.coordinate;
     annotation.annotationType = 32;
     annotation.identifier = self.count;
     self.count++;
     
+    UIImage *annotationImage = [UIImage imageNamed:@"iconcar.png"];
+    UIImageView *annotationImageView = [[UIImageView alloc] initWithImage:annotationImage];
+    SKAnnotationView *annotationView = [[SKAnnotationView alloc] initWithView:annotationImageView reuseIdentifier:@"id"];
+    
     SKAnimationSettings *animationSettings = [SKAnimationSettings animationSettings];
     animationSettings.animationType = 3;
-    
+    annotation.annotationView = annotationView;
+   
     [self.mapView addAnnotation:annotation withAnimationSettings:animationSettings];
-    NSLog(@"Map view annotations: %lu", [self.mapView.annotations count]);
 }
 
 - (void)mapView:(SKMapView *)mapView didSelectAnnotation:(SKAnnotation *)annotation {
     self.mapView.calloutView.titleLabel.text = @"Incident";
-    self.mapView.calloutView.subtitleLabel.text = @"Subtitle";
-    
+    self.mapView.calloutView.subtitleLabel.text = @"subtitle";
     [self.mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 42) animated:YES];
 }
 
@@ -90,41 +98,46 @@
     }
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    self.currentLocation = [locations lastObject];
-//    NSLog(@"lat  %f",self.currentLocation.coordinate.latitude);
-//    NSLog(@"long  %f",self.currentLocation.coordinate.longitude);
-//    
-//    UIImage *image1 = [UIImage imageNamed:@"camera.png"];
-//    
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image1];
-//    SKAnnotationView *view = [[SKAnnotationView alloc] initWithView:imageView reuseIdentifier:@"id"];
+- (void)calloutView:(SKCalloutView *)calloutView didTapRightButton:(UIButton *)rightButton {
+    [self performSegueWithIdentifier:@"carIncidentDetailSegue" sender:self];
 }
 
 
--(void)addIncidentToMap{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.currentLocation = [locations lastObject];
+}
+
+-(void)addIncidentToMap {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context]];
     
     NSError *error = nil;
     NSArray *results = [context executeFetchRequest:request error:&error];
     
-    
-    NSManagedObject* obj = [results objectAtIndex:0];
-    
-    CLLocationCoordinate2D coord;
-    coord.latitude = (CLLocationDegrees)[[obj valueForKey:@"latitude"] doubleValue];
-    coord.longitude = (CLLocationDegrees)[[obj valueForKey:@"longitude"] doubleValue];
-    
-    CLLocation *incidentLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-    
-    [self showAnnotation:incidentLocation];
-    
-    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(50.0, 28.0);
-    CLLocation *anotherLocation = [[CLLocation alloc] initWithLatitude:coord2.latitude longitude:coord2.longitude];
-    [self showAnnotation:anotherLocation];
+    for (object in results) {
+        
+        CLLocationCoordinate2D incidentCoordinate;
+        incidentCoordinate.latitude = (CLLocationDegrees)[[object valueForKey:@"latitude"] doubleValue];
+        incidentCoordinate.longitude = (CLLocationDegrees)[[object valueForKey:@"longitude"] doubleValue];
+        
+        CLLocation *incidentLocation = [[CLLocation alloc] initWithLatitude:incidentCoordinate.latitude longitude:incidentCoordinate.longitude];
+        [self showAnnotation:incidentLocation withObject:object];
+    }
 }
 
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"carIncidentDetailSegue"]){
+        
+        CarIncidentDetailViewController *carIncidentDetailViewController = (CarIncidentDetailViewController *)segue.destinationViewController;
+        carIncidentDetailViewController.incidentDate = [object valueForKey:@"date"];
+        NSData *data = [[NSData alloc] initWithData:[object valueForKey:@"photo"]];
+        UIImage *image = [UIImage imageWithData:data];
+        carIncidentDetailViewController.imageIncident=image;
+        
+    }
+}
 
 @end

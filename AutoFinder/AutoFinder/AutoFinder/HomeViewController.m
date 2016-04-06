@@ -44,6 +44,7 @@
     self.mapView.settings.showCompass=YES;
     self.mapView.settings.panningEnabled=NO;
     self.mapView.settings.rotationEnabled=NO;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

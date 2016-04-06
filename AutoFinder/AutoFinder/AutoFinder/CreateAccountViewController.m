@@ -45,7 +45,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:NO];
-     self.title = @"Create a new account";
+    self.title = @"Create a new account";
 }
 
 - (void)viewDidAppear:(BOOL)animated

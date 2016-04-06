@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		58236EEE1CAE8BAE0037AE82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236EED1CAE8BAE0037AE82 /* MapKit.framework */; };
 		58236EF81CAE9EF60037AE82 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58236EF71CAE9EF60037AE82 /* User.m */; };
-		58236EFE1CAEA0AD0037AE82 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */; };
-		58236F001CAEA1D90037AE82 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236EFF1CAEA1D90037AE82 /* SKMaps.framework */; };
 		58236F021CAEA1FB0037AE82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F011CAEA1FA0037AE82 /* UIKit.framework */; };
 		58236F041CAEA2020037AE82 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F031CAEA2020037AE82 /* CoreLocation.framework */; };
 		58236F061CAEA2090037AE82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F051CAEA2090037AE82 /* Foundation.framework */; };
@@ -30,6 +28,9 @@
 		588006891CA93C6700662C50 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006881CA93C6700662C50 /* LogoutViewController.m */; };
 		58C9AFA81CB3BA7E00A72E96 /* CarIncidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */; };
 		58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFAA1CB3E44B00A72E96 /* Photo.m */; };
+		CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE4F8BE1CB503960074C539 /* SKMaps.bundle */; };
+		CEE4F8C31CB503FF0074C539 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4F8C21CB503FF0074C539 /* SKMaps.framework */; };
+		CEE4F8C61CB50B1A0074C539 /* CarIncidentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
@@ -42,8 +43,6 @@
 /* Begin PBXFileReference section */
 		58236EED1CAE8BAE0037AE82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		58236EF71CAE9EF60037AE82 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SKMaps.bundle; path = ../../../../Downloads/SKMaps_iOS_2/SKMapsResources/SKMaps.bundle; sourceTree = "<group>"; };
-		58236EFF1CAEA1D90037AE82 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
 		58236F011CAEA1FA0037AE82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58236F031CAEA2020037AE82 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		58236F051CAEA2090037AE82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +72,10 @@
 		58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentsViewController.m; sourceTree = "<group>"; };
 		58C9AFA91CB3E44B00A72E96 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		58C9AFAA1CB3E44B00A72E96 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		CEE4F8BE1CB503960074C539 /* SKMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SKMaps.bundle; sourceTree = "<group>"; };
+		CEE4F8C21CB503FF0074C539 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
+		CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarIncidentDetailViewController.h; sourceTree = "<group>"; };
+		CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentDetailViewController.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,7 +105,7 @@
 				58236F041CAEA2020037AE82 /* CoreLocation.framework in Frameworks */,
 				58236F021CAEA1FB0037AE82 /* UIKit.framework in Frameworks */,
 				58236EEE1CAE8BAE0037AE82 /* MapKit.framework in Frameworks */,
-				58236F001CAEA1D90037AE82 /* SKMaps.framework in Frameworks */,
+				CEE4F8C31CB503FF0074C539 /* SKMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +125,8 @@
 				58236F051CAEA2090037AE82 /* Foundation.framework */,
 				58236F031CAEA2020037AE82 /* CoreLocation.framework */,
 				58236F011CAEA1FA0037AE82 /* UIKit.framework */,
-				58236EFF1CAEA1D90037AE82 /* SKMaps.framework */,
-				58236EFD1CAEA0AD0037AE82 /* SKMaps.bundle */,
+				CEE4F8BE1CB503960074C539 /* SKMaps.bundle */,
+				CEE4F8C21CB503FF0074C539 /* SKMaps.framework */,
 				58236EED1CAE8BAE0037AE82 /* MapKit.framework */,
 				D0994ECA1C947AA9009A46AE /* AutoFinder */,
 				D0994EC91C947AA9009A46AE /* Products */,
@@ -171,6 +174,8 @@
 				588006881CA93C6700662C50 /* LogoutViewController.m */,
 				58C9AFA61CB3BA7E00A72E96 /* CarIncidentsViewController.h */,
 				58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */,
+				CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */,
+				CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -250,7 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58236EFE1CAEA0AD0037AE82 /* SKMaps.bundle in Resources */,
+				CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */,
 				D0994EDE1C947AA9009A46AE /* LaunchScreen.storyboard in Resources */,
 				D0994EDB1C947AA9009A46AE /* Assets.xcassets in Resources */,
 				D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */,
@@ -278,6 +283,7 @@
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
 				588006891CA93C6700662C50 /* LogoutViewController.m in Sources */,
 				584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */,
+				CEE4F8C61CB50B1A0074C539 /* CarIncidentDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

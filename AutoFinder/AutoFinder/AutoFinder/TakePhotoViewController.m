@@ -10,11 +10,12 @@
 #import "AppDelegate.h"
 #import "FindDriverViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {
     
+    NSManagedObjectContext *context;
     __weak IBOutlet UIButton *takePhotoButton;
-     NSManagedObjectContext *context;
     __weak IBOutlet UIButton *selectPhotoButton;
     __weak IBOutlet UIButton *sendPhotoButton;
 }
@@ -36,21 +37,17 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     context = [appDelegate managedObjectContext];
     
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
-    
-
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.currentLocation = [locations lastObject];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -86,7 +83,6 @@
     
     [self presentViewController:picker animated:YES
                      completion:NULL];
-    
 }
 
 -(IBAction)sendPhoto:(id)sender {
@@ -115,6 +111,27 @@
 }
 
 
+-(void)sendToDatabase:(UIImage *)image{
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    NSNumber *latitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.latitude];
+    NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.longitude];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+    
+    NSData *dataWithImage = UIImageJPEGRepresentation(image, 1.0);
+    [newPhoto setValue:dataWithImage forKey:@"photo"];
+    [newPhoto setValue:[NSDate date] forKey:@"date"];
+    [newPhoto setValue:latitude forKey:@"latitude"];
+    [newPhoto setValue:longitude forKey:@"longitude"];
+    
+    NSError *error;
+    BOOL isSaved = [appDelegate.managedObjectContext save:&error];
+    NSLog(@"Successfully saved photo, flag: %d", isSaved);
+}
+
 #pragma mark - Image Picker Controller delegate methods
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -127,35 +144,6 @@
     [sendPhotoButton setHidden:NO];
     
     [self sendToDatabase:chosenImage];
-}
-
-
-
-
--(void)sendToDatabase:(UIImage *)image{
-    
-    NSNumber *latitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.latitude];
-    NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.longitude];
-    
-    NSLog(@"latitude is: %@",latitude);
-    NSLog(@"longitude is: %@",longitude);
-    
-    
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:appDelegate.managedObjectContext];
-    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
-    
-    NSData *dataWithImage = UIImagePNGRepresentation(image);
-    [newPhoto setValue:dataWithImage forKey:@"photo"];
-    [newPhoto setValue:[NSDate date] forKey:@"date"];
-    [newPhoto setValue:latitude forKey:@"latitude"];
-    [newPhoto setValue:longitude forKey:@"longitude"];
-    NSLog(@"%@", [NSDate date]);
-    
-    NSError *error;
-    BOOL isSaved = [appDelegate.managedObjectContext save:&error];
-    NSLog(@"Successfully saved photo, flag: %d", isSaved);
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

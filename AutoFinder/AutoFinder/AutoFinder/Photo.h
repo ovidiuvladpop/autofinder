@@ -11,9 +11,11 @@
 
 
 @interface Photo : NSObject
-@property (nullable, nonatomic) UIImage *photo;
+
+@property (nonnull, nonatomic, strong) NSData *photo;
 @property (nullable, nonatomic) NSNumber *latitude;
 @property (nullable, nonatomic) NSNumber *longitude;
-@property (nullable, nonatomic) NSData *date;
+@property (nullable, nonatomic) NSDate *date;
+
 @end
 
