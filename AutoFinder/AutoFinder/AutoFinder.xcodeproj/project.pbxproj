@@ -31,6 +31,7 @@
 		CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE4F8BE1CB503960074C539 /* SKMaps.bundle */; };
 		CEE4F8C31CB503FF0074C539 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4F8C21CB503FF0074C539 /* SKMaps.framework */; };
 		CEE4F8C61CB50B1A0074C539 /* CarIncidentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */; };
+		CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
@@ -76,6 +77,8 @@
 		CEE4F8C21CB503FF0074C539 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
 		CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarIncidentDetailViewController.h; sourceTree = "<group>"; };
 		CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentDetailViewController.m; sourceTree = "<group>"; };
+		CEE4F8C71CB54C150074C539 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 				58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */,
 				CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */,
 				CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */,
+				CEE4F8C71CB54C150074C539 /* CustomAnnotation.h */,
+				CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */,
 				58236EF81CAE9EF60037AE82 /* User.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
+				CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */,
 				584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */,
 				D0994ED31C947AA9009A46AE /* ViewController.m in Sources */,
 				584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */,
