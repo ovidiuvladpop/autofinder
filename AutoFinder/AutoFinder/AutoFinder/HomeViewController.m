@@ -35,11 +35,9 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
-    
-    self.mapView.settings.showCompass=YES;
     self.mapView.settings.panningEnabled=NO;
     self.mapView.settings.rotationEnabled=NO;
-    
+    self.mapView.calloutView.rightButton.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,7 +56,8 @@
 
 #pragma mark - Actions
 
--(void)showAnnotation{
+-(void)showAnnotation {
+    
     SKAnnotation *annotation =[SKAnnotation annotation];
     annotation.location = self.currentLocation.coordinate;
     annotation.annotationType = 32;
@@ -70,6 +69,7 @@
 }
 
 -(void)mapView:(SKMapView *)mapView didSelectAnnotation:(SKAnnotation *)annotation {
+    
     self.mapView.calloutView.titleLabel.text = @"You are here !";
     self.mapView.calloutView.subtitleLabel.text = @"Tap outside to hide me!";
     
@@ -85,43 +85,6 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.currentLocation = [locations lastObject];
-//    NSLog(@"lat  %f",self.currentLocation.coordinate.latitude);
-//    NSLog(@"long  %f",self.currentLocation.coordinate.longitude);
-//    
-//    UIImage *image1 = [UIImage imageNamed:@"camera.png"];
-//    
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image1];
-//    SKAnnotationView *view = [[SKAnnotationView alloc] initWithView:imageView reuseIdentifier:@"id"];
-//    
-//    
-//    
-//    
-//    SKCalloutView *calloutView = [SKCalloutView calloutView];
-//    UILabel *testLabel = [[UILabel alloc] init];
-//    testLabel.text = @"You are here !";
-//    
-//    calloutView.titleLabel = testLabel;
-//    calloutView.delegate = self;
-//    //calloutView.location=self.currentLocation.coordinate;
-//    
-//    self.mapView.calloutView = calloutView;
-//    [self.mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 42) animated:YES];
-//    
-//   [self.mapView showCalloutAtLocation:self.currentLocation.coordinate withOffset:CGPointMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude) animated:YES];
-    
-}
-
-
-- (IBAction)findDriverButonPressed:(id)sender {
-    
-}
-
-- (IBAction)findParkingButtonPresse:(id)sender {
-    
-}
-
-- (IBAction)improveMapButtonPressed:(id)sender {
-    
 }
 
 - (void)makeRoundButtons:(UIButton *)button {

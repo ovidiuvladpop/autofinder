@@ -15,7 +15,4 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation* currentLocation;
 
--(IBAction)findDriverButonPressed:(id)sender;
--(IBAction)findParkingButtonPresse:(id)sender;
-
 @end

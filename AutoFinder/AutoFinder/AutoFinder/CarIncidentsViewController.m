@@ -50,6 +50,7 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
+    self.mapView.settings.showCompass=YES;
     self.mapView.delegate = self;
     self.mapView.calloutView.delegate = self;
 }
@@ -89,7 +90,7 @@
     annotation.streetName = [self getStreetName:incidentLocation];
     self.count++;
     
-    UIImage *annotationImage = [UIImage imageNamed:@"iconcar.png"];
+    UIImage *annotationImage = [UIImage imageNamed:@"incidentIcon.png"];
     UIImageView *annotationImageView = [[UIImageView alloc] initWithImage:annotationImage];
     SKAnnotationView *annotationView = [[SKAnnotationView alloc] initWithView:annotationImageView reuseIdentifier:@"id"];
     
@@ -115,6 +116,7 @@
     customTappedAnnotation.identifier = annotation.identifier;
     customTappedAnnotation.imageIncident = annotation.imageIncident;
     customTappedAnnotation.incidentDate = annotation.incidentDate;
+    customTappedAnnotation.streetName=annotation.streetName;
     
     [self.mapView showCalloutForAnnotation:customTappedAnnotation withOffset:CGPointMake(0, 42) animated:YES];
 }

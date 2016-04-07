@@ -11,7 +11,7 @@
 @interface CarIncidentDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (weak, nonatomic) IBOutlet UITextField *dateTextBox;
+@property (weak, nonatomic) IBOutlet UITextField *streetTextbox;
     
 @end
 
@@ -26,7 +26,7 @@
     [self.navigationController.navigationBar setHidden:NO];
     self.title = @"Details";
     
-    self.dateTextBox.text = self.streetName;
+    self.streetTextbox.text = self.streetName;
     self.image.image = self.imageIncident;
 }
 
