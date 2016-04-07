@@ -17,6 +17,5 @@
 
 -(IBAction)findDriverButonPressed:(id)sender;
 -(IBAction)findParkingButtonPresse:(id)sender;
--(IBAction)improveMapButtonPressed:(id)sender;
 
 @end

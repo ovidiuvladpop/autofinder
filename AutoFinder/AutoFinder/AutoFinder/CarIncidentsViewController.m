@@ -69,13 +69,14 @@
 
 #pragma mark - Actions
 
-- (void)showAnnotation:(CLLocation *)incidentLocation withObject:(NSManagedObject *)managedObject {
+- (NSString *)getStreetName:(CLLocation *)incidentLocation {
+    SKReverseGeocoderService *reverseGeocoderService = [SKReverseGeocoderService sharedInstance];
+    SKSearchResult *searchResult = [reverseGeocoderService reverseGeocodeLocation:incidentLocation.coordinate];
     
-//    SKAnnotation *annotation =[SKAnnotation annotation] ;
-//    annotation.location = incidentLocation.coordinate;
-//    annotation.annotationType = 32;
-//    annotation.identifier = self.count;
-//    self.count++;
+    return searchResult.name;
+}
+
+- (void)showAnnotation:(CLLocation *)incidentLocation withObject:(NSManagedObject *)managedObject {
     
     CustomAnnotation *annotation = [CustomAnnotation annotation];
     annotation.location = incidentLocation.coordinate;
@@ -85,6 +86,7 @@
     UIImage *image = [UIImage imageWithData:data];
     annotation.imageIncident = image;
     annotation.incidentDate = [managedObject valueForKey:@"date"];
+    annotation.streetName = [self getStreetName:incidentLocation];
     self.count++;
     
     UIImage *annotationImage = [UIImage imageNamed:@"iconcar.png"];
@@ -100,7 +102,13 @@
 
 - (void)mapView:(SKMapView *)mapView didSelectAnnotation:(CustomAnnotation *)annotation {
     self.mapView.calloutView.titleLabel.text = @"Incident";
-    self.mapView.calloutView.subtitleLabel.text = @"subtitle";
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
+    
+    NSString *stringFromDate = [formatter stringFromDate:annotation.incidentDate];
+    self.mapView.calloutView.subtitleLabel.text = stringFromDate;
+    
     customTappedAnnotation = [CustomAnnotation annotation];
     customTappedAnnotation.location = annotation.location;
     customTappedAnnotation.annotationType = annotation.annotationType;
@@ -152,12 +160,8 @@
     if([segue.identifier isEqualToString:@"carIncidentDetailSegue"]){
         
         CarIncidentDetailViewController *carIncidentDetailViewController = (CarIncidentDetailViewController *)segue.destinationViewController;
-//        carIncidentDetailViewController.incidentDate = [object valueForKey:@"date"];
-//        NSData *data = [[NSData alloc] initWithData:[object valueForKey:@"photo"]];
-//        UIImage *image = [UIImage imageWithData:data];
-//        carIncidentDetailViewController.imageIncident=image;
         
-        carIncidentDetailViewController.incidentDate = customTappedAnnotation.incidentDate;
+        carIncidentDetailViewController.streetName = customTappedAnnotation.streetName;
         carIncidentDetailViewController.imageIncident = customTappedAnnotation.imageIncident;
     }
 }

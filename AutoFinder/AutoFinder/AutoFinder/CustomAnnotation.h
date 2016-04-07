@@ -12,5 +12,6 @@
 
 @property (nonnull, nonatomic, strong) UIImage *imageIncident;
 @property (nonnull, nonatomic, strong) NSDate *incidentDate;
+@property (nonnull, nonatomic, strong) NSString *streetName;
 
 @end

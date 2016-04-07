@@ -16,8 +16,7 @@
 @interface HomeViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {
     
     __weak IBOutlet UIButton *findDriverButton;
-    __weak IBOutlet UIButton *findParkingButton;
-    __weak IBOutlet UIButton *improveMapButton;
+    __weak IBOutlet UIButton *carIncidentsButton;
     
 }
 
@@ -30,11 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self makeRoundButtons:findDriverButton];
-    [self makeRoundButtons:findParkingButton];
-    [self makeRoundButtons:improveMapButton];
     self.mapView.delegate = self;
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -50,6 +45,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self makeRoundButtons:findDriverButton];
+    [self makeRoundButtons:carIncidentsButton];
     [self.navigationController.navigationBar setHidden:YES];
 }
 

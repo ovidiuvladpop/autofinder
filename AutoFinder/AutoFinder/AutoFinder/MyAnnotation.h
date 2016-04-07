@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SKMaps/SKMaps.h>
 
-@interface MyAnnotation : NSObject
+@interface MyAnnotation : SKAnnotation <SKMapViewDelegate>
+
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coord;
 
 @end

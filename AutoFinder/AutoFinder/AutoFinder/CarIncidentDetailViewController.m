@@ -26,13 +26,8 @@
     [self.navigationController.navigationBar setHidden:NO];
     self.title = @"Details";
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
-    
-    NSString *stringFromDate = [formatter stringFromDate:self.incidentDate];
-    
-    self.dateTextBox.text= stringFromDate;
-    self.image.image= self.imageIncident;
+    self.dateTextBox.text = self.streetName;
+    self.image.image = self.imageIncident;
 }
 
 - (void)didReceiveMemoryWarning {
