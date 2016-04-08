@@ -12,8 +12,7 @@
 #import <SKMaps/SKAnnotation.h>
 #import <SKMaps/SKAnnotationView.h>
 
-@interface CarIncidentsViewController : UIViewController
- <CLLocationManagerDelegate>
+@interface CarIncidentsViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation* currentLocation;

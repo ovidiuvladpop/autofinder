@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *autoLabel;
 
 - (IBAction)loginButtonPressed:(id)sender;
-- (IBAction)notButton:(id)sender;
+- (IBAction)notHavingAccountButtonPressed:(id)sender;
 
 @end

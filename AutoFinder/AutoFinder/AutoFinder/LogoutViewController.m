@@ -13,19 +13,26 @@
 @interface LogoutViewController () <UIAlertViewDelegate> {
     
     __weak IBOutlet UIButton *logoutButton;
+    
 }
 
 @end
 
 @implementation LogoutViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self makeRoundButtons:logoutButton];
+    
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+    
 }
 
 #pragma mark - Actions
@@ -33,9 +40,14 @@
 - (IBAction)logout:(id)sender {
     
     [[[self navigationController] navigationBar] setHidden:YES];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to logout ?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to logout ?"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
     
     [alert show];
+    
 }
 
 - (void)makeRoundButtons:(UIButton *)button {
@@ -47,9 +59,11 @@
 
 //Called when Yes button is pressed
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
     if (buttonIndex == 1) {
         [self.navigationController popViewControllerAnimated:YES];
     }
+    
 }
 
 @end

@@ -18,6 +18,7 @@
     __weak IBOutlet UIButton *takePhotoButton;
     __weak IBOutlet UIButton *selectPhotoButton;
     __weak IBOutlet UIButton *sendPhotoButton;
+    
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
@@ -26,7 +27,10 @@
 
 @implementation TakePhotoViewController 
 
--(void)viewDidLoad {
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [self makeRoundButtons:takePhotoButton];
@@ -42,20 +46,27 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    self.currentLocation = [locations lastObject];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
      self.title = @"Choose photo";
+    
 }
 
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - CLLocationManagerDelegate's methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    self.currentLocation = [locations lastObject];
+    
 }
 
 #pragma mark - Actions
@@ -105,13 +116,13 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
         if (buttonIndex == 1) {
             FindDriverViewController *previousViewController = (FindDriverViewController *)[self previousViewController];
-            previousViewController.photoName = @"MyPhoto";
+            previousViewController.selectedPhotoByUser = self.imageView.image;
             [self.navigationController popViewControllerAnimated:YES];
         }
 }
 
 
--(void)sendToDatabase:(UIImage *)image{
+-(void)sendToDatabase:(UIImage *)image {
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
@@ -128,8 +139,7 @@
     [newPhoto setValue:longitude forKey:@"longitude"];
     
     NSError *error;
-    BOOL isSaved = [appDelegate.managedObjectContext save:&error];
-    NSLog(@"Successfully saved photo, flag: %d", isSaved);
+    [appDelegate.managedObjectContext save:&error];
 }
 
 #pragma mark - Image Picker Controller delegate methods

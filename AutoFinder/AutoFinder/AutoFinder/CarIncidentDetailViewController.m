@@ -18,20 +18,28 @@
 
 @implementation CarIncidentDetailViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [self.navigationController.navigationBar setHidden:NO];
     self.title = @"Details";
     
     self.streetTextbox.text = self.streetName;
     self.image.image = self.imageIncident;
+    
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
+    
 }
 
 @end

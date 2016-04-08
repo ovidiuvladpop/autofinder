@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AccountViewController(){
+@interface AccountViewController() {
       NSManagedObjectContext *context;
     
     __weak IBOutlet UITextField *usernameField;
@@ -29,7 +29,10 @@
 
 @implementation AccountViewController
 
+#pragma mark - UIViewController
+
 -(void)viewDidLoad {
+    
     [super viewDidLoad];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -41,25 +44,19 @@
     [self makeRoundButtons:buyAttemptsButton];
     [self makeRoundButtons:editAccountButton];
     [self makeRoundButtons:saveAccountButton];
+    
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:YES];
     [save setHidden:YES];
     [self setUserProperties];
+    
 }
 
 #pragma mark - Actions
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [usernameField resignFirstResponder];
-    [emailField resignFirstResponder];
-    [phoneNumberField resignFirstResponder];
-    [carNumberField resignFirstResponder];
-    return NO;
-}
 
 - (void)dismissKeyboard {
     [usernameField resignFirstResponder];
@@ -83,17 +80,38 @@
     
 }
 
+- (BOOL)checkForEmptyField {
+    if (([usernameField.text isEqualToString:@""]) ||
+        ([emailField.text isEqualToString:@""]) ||
+        ([phoneNumberField.text isEqualToString:@""]) ||
+        ([carNumberField.text isEqualToString:@""])) {
+        return YES;
+    }
+    return NO;
+}
+
 - (IBAction)saveButton:(id)sender {
+    if ([self checkForEmptyField]) {
+        
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Warning"
+                                                       message:@"Please fill in all fields !"
+                                                      delegate:nil
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+        [alert show];
+        
+    } else {
+        [save setHidden:YES];
     
-    [save setHidden:YES];
+        [usernameField setEnabled:NO];
+        [emailField setEnabled:NO];
+        [phoneNumberField setEnabled:NO];
+        [carNumberField setEnabled:NO];
     
-    [usernameField setEnabled:NO];
-    [emailField setEnabled:NO];
-    [phoneNumberField setEnabled:NO];
-    [carNumberField setEnabled:NO];
+        [self updateUser];
+        [self updateDefaultUser];
+    }
     
-    [self updateUser];
-    [self updateDefaultUser];
 }
 
 - (IBAction)buyAttempts:(id)sender {
@@ -118,9 +136,9 @@
     [self updateDefaultUser:numberOfAttempts];
     [self setUserProperties];
     
-    
 }
 - (void)updateDefaultUser:(NSNumber *)numberOfAttempts {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:numberOfAttempts forKey:@"attempts"];
@@ -167,6 +185,18 @@
     phoneNumberField.text  = [defaults objectForKey:@"phone"];
     carNumberField.text    = [defaults objectForKey:@"car"];
     attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
+}
+
+#pragma mark - UITextFieldDelegate's methods
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [usernameField resignFirstResponder];
+    [emailField resignFirstResponder];
+    [phoneNumberField resignFirstResponder];
+    [carNumberField resignFirstResponder];
+    return NO;
+    
 }
 
 @end

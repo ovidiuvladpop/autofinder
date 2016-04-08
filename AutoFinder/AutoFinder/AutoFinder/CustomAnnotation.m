@@ -10,10 +10,12 @@
 
 @implementation CustomAnnotation
 
+//A newly initialized custom annotation.
 + (instancetype) annotation {
     
     CustomAnnotation *customAnnotation = [[CustomAnnotation alloc] init];
     return customAnnotation;
+    
 }
 
 @end

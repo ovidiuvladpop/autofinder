@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,109 +17,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-bA-Pg9">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="242" id="D9R-rJ-nzo">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="360"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="217" id="FDh-Dr-lLv">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="324"/>
-                                    </constraint>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="D9R-rJ-nzo"/>
-                                        <exclude reference="FDh-Dr-lLv"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="D9R-rJ-nzo"/>
-                                        <include reference="FDh-Dr-lLv"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Finder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-mR-KvE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Driver Finder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-DV-Qmm">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="AVd-sW-91c">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="75"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="283" id="KA8-6k-FKS">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="360"/>
-                                    </constraint>
+                                    <constraint firstAttribute="height" constant="110" id="48Q-3P-M4g"/>
+                                    <constraint firstAttribute="width" constant="346" id="4AB-KJ-dgf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="32"/>
-                                <color key="textColor" cyan="0.014480829238891602" magenta="0.0892454743385315" yellow="0.86684978008270264" black="0.019562065601348877" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN-Bold" family="Sinhala Sangam MN" pointSize="35"/>
+                                <color key="textColor" cyan="0.01448082924" magenta="0.089245474340000006" yellow="0.86684978010000002" black="0.019562065600000001" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="AVd-sW-91c"/>
-                                        <exclude reference="KA8-6k-FKS"/>
+                                        <exclude reference="48Q-3P-M4g"/>
+                                        <exclude reference="4AB-KJ-dgf"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="AVd-sW-91c"/>
-                                        <include reference="KA8-6k-FKS"/>
+                                        <include reference="48Q-3P-M4g"/>
+                                        <include reference="4AB-KJ-dgf"/>
                                     </mask>
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.8784313725490196" green="0.20000000000000001" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15131915979999999" green="0.1413379588" blue="0.15019536310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jAO-mR-KvE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4wH-BR-BVb"/>
-                            <constraint firstItem="jAO-mR-KvE" firstAttribute="centerX" secondItem="FQT-bA-Pg9" secondAttribute="centerX" id="8Dt-8p-VuV"/>
-                            <constraint firstItem="FQT-bA-Pg9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="59" id="DCM-LN-94Z">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="jAO-mR-KvE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="39" id="Dhs-xe-CK3">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="jAO-mR-KvE" secondAttribute="bottom" constant="207" id="Zt0-Jq-5Wl">
-                                <variation key="heightClass=regular-widthClass=compact" constant="140"/>
-                            </constraint>
-                            <constraint firstItem="FQT-bA-Pg9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="80" id="gW3-yb-ti9">
-                                <variation key="heightClass=regular-widthClass=compact" constant="52"/>
-                            </constraint>
+                            <constraint firstItem="ybg-DV-Qmm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Yk3-R3-v5w"/>
+                            <constraint firstItem="ybg-DV-Qmm" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="259" id="dUm-fr-ioe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="FQT-bA-Pg9"/>
-                                <exclude reference="jAO-mR-KvE"/>
+                                <exclude reference="ybg-DV-Qmm"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Zt0-Jq-5Wl"/>
-                                <exclude reference="4wH-BR-BVb"/>
-                                <exclude reference="8Dt-8p-VuV"/>
-                                <exclude reference="Dhs-xe-CK3"/>
-                                <exclude reference="DCM-LN-94Z"/>
-                                <exclude reference="gW3-yb-ti9"/>
+                                <exclude reference="Yk3-R3-v5w"/>
+                                <exclude reference="dUm-fr-ioe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="FQT-bA-Pg9"/>
-                                <include reference="jAO-mR-KvE"/>
+                                <include reference="ybg-DV-Qmm"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Zt0-Jq-5Wl"/>
-                                <include reference="4wH-BR-BVb"/>
-                                <include reference="8Dt-8p-VuV"/>
-                                <include reference="Dhs-xe-CK3"/>
-                                <include reference="DCM-LN-94Z"/>
-                                <include reference="gW3-yb-ti9"/>
+                                <include reference="Yk3-R3-v5w"/>
+                                <include reference="dUm-fr-ioe"/>
                             </mask>
                         </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.5" y="375"/>
+            <point key="canvasLocation" x="51.75" y="374.625"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="launch" width="180" height="180"/>
-    </resources>
 </document>

@@ -19,11 +19,15 @@
     IBOutlet UIScrollView *scrollView;
     
 }
+
 @end
 
 @implementation FindDriverViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
@@ -39,34 +43,41 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
      self.title = @"Find driver";
+    
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
+    
     [self registerForKeyboardNotifications];
+    
 }
-- (void)viewDidDisappear:(BOOL)animated
-{
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
     [self unRegisterForKeyboardNotifications];
+    
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
+    
 }
 
 #pragma mark - Keyboard Notifications
 
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWillShowNotification:(NSNotification*)aNotification {
+    
     float height = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
-    
-    
     
     scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
     scrollView.scrollIndicatorInsets = scrollView.contentInset;
@@ -79,67 +90,49 @@
     if(![_carNumberField isFirstResponder]) {
         scrollView.contentOffset = CGPointZero;
     }
+    
     scrollView.contentInset = UIEdgeInsetsZero;
     scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    
 }
 
 
-- (void)registerForKeyboardNotifications
-{
+- (void)registerForKeyboardNotifications {
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
-- (void)unRegisterForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+- (void)unRegisterForKeyboardNotifications {
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 #pragma mark - Actions
 
--(void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-    if (textField == _carNumberField){
-        scrollView.contentOffset =  CGPointMake(0.0, _showParkingLabel2.frame.origin.y - 1.0);
-    }
-}
-
-- (void)dismissKeyboard {
-    [[self carNumberField] resignFirstResponder];
-   
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [[self carNumberField] resignFirstResponder];
-    return NO;
-}
-
-- (void)makeRoundButtons:(UIButton *)button {
-    button.layer.cornerRadius = 10;
-    button.clipsToBounds = YES;
-}
-
 - (IBAction)recieveNumber:(id)sender {
     
-    if ([[self photoName] isEqualToString:@"MyPhoto"]) {
-        if ([self checkCarNumbeField]) {
+    if (self.selectedPhotoByUser) {
+        
+        if ([self isCarNumberFieldEmpty]) {
+            
             if ([self checkAttempts]) {
-                NSLog(@"%@", self.photoName);
+                
                 NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
                                                               inManagedObjectContext:context];
                 NSFetchRequest *request = [[NSFetchRequest alloc]init];
                 [request setEntity:entitydesc];
-    
+                
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"car like %@", [[self carNumberField] text]];
                 [request setPredicate:predicate];
-    
+                
                 NSError *error;
                 NSArray *matchingData=[context executeFetchRequest:request
                                                              error:&error];
-    
+                
                 if(matchingData.count <= 0){
                     UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"We are sorry"
                                                                    message:@"We have not found any number!"
@@ -147,37 +140,66 @@
                                                          cancelButtonTitle:@"Dismiss"
                                                          otherButtonTitles:nil];
                     [alert show];
+                    
                 } else {
+                    
                     for(NSManagedObjectContext *obj in matchingData) {
                         phoneNumber = [obj valueForKey:@"phone"];
                     }
-       
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number" message:phoneNumber delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call", nil];
+                    
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We found the phone number"
+                                                                    message:phoneNumber
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"Cancel"
+                                                          otherButtonTitles:@"Call", nil];
                     [alert show];
                     [self decreaseAttempts];
                 }
+                
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have no more attempts!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                                message:@"You have no more attempts!"
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"Ok", nil];
                 [alert show];
             }
+            
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Car number not found !" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                            message:@"Please fill in car number !"
+                                                           delegate:self
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Ok", nil];
             [alert show];
         }
+        
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Photo not selected !" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                        message:@"Select a photo !"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Ok", nil];
         [alert show];
     }
+    
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        NSString *phoneNumberToCall = [@"tel://" stringByAppendingString:phoneNumber];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberToCall]];
-    }
+- (void)dismissKeyboard {
+    
+    [[self carNumberField] resignFirstResponder];
+    
 }
 
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
 
+//Method used for decrease attempts when user checks for car number.
 - (void)decreaseAttempts { 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
@@ -198,7 +220,9 @@
     [self updateDefaultUser:numberOfAttempts];
 }
 
+//Method used for checking user's attempts.
 - (BOOL)checkAttempts {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:@"attempts"] intValue] < 1) {
         return false;
@@ -206,19 +230,55 @@
     return true;
 }
 
+//Method used for updating user on NSUserDefaults
 - (void)updateDefaultUser:(NSNumber *)numberOfAttempts {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:numberOfAttempts forKey:@"attempts"];
     [defaults synchronize];
+    
 }
 
-
-- (BOOL)checkCarNumbeField {
-    if ([[self carNumberField] text] == nil) {
+//Method used for checking emtpy fields.
+- (BOOL)isCarNumberFieldEmpty {
+    if ([self.carNumberField.text isEqualToString:@""]) {
         return NO;
     }
         return YES;
+}
+
+#pragma mark - UITextFieldDelegate's methods
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if (textField == _carNumberField){
+        
+        scrollView.contentOffset =  CGPointMake(0.0, _showParkingLabel2.frame.origin.y - 1.0);
+        
+    }
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [[self carNumberField] resignFirstResponder];
+    
+    return NO;
+    
+}
+
+#pragma mark - UIAlertViewDelegate's methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+        
+        NSString *phoneNumberToCall = [@"tel://" stringByAppendingString:phoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberToCall]];
+        
+    }
+    
 }
 
 @end

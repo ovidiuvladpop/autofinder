@@ -26,6 +26,8 @@
 		584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE701CA41B0400F6D8E4 /* LoginViewController.m */; };
 		584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */; };
 		588006891CA93C6700662C50 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006881CA93C6700662C50 /* LogoutViewController.m */; };
+		58AF21201CB7CA3F0078975B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58AF211F1CB7CA3F0078975B /* Assets.xcassets */; };
+		58AF21231CB7CF860078975B /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AF21221CB7CF860078975B /* CustomTabBarViewController.m */; };
 		58C9AFA81CB3BA7E00A72E96 /* CarIncidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */; };
 		58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFAA1CB3E44B00A72E96 /* Photo.m */; };
 		CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE4F8BE1CB503960074C539 /* SKMaps.bundle */; };
@@ -34,10 +36,8 @@
 		CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
-		D0994ED31C947AA9009A46AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED21C947AA9009A46AE /* ViewController.m */; };
 		D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0994ED41C947AA9009A46AE /* Main.storyboard */; };
 		D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0994ED71C947AA9009A46AE /* AutoFinder.xcdatamodeld */; };
-		D0994EDB1C947AA9009A46AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0994EDA1C947AA9009A46AE /* Assets.xcassets */; };
 		D0994EDE1C947AA9009A46AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0994EDC1C947AA9009A46AE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +69,9 @@
 		584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		588006871CA93C6700662C50 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
 		588006881CA93C6700662C50 /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
+		58AF211F1CB7CA3F0078975B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		58AF21211CB7CF860078975B /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
+		58AF21221CB7CF860078975B /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarViewController.m; sourceTree = "<group>"; };
 		58C9AFA61CB3BA7E00A72E96 /* CarIncidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarIncidentsViewController.h; sourceTree = "<group>"; };
 		58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentsViewController.m; sourceTree = "<group>"; };
 		58C9AFA91CB3E44B00A72E96 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -83,11 +86,8 @@
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D0994ECF1C947AA9009A46AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D0994ED11C947AA9009A46AE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D0994ED21C947AA9009A46AE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D0994ED51C947AA9009A46AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0994ED81C947AA9009A46AE /* AutoFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AutoFinder.xcdatamodel; sourceTree = "<group>"; };
-		D0994EDA1C947AA9009A46AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0994EDD1C947AA9009A46AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0994EDF1C947AA9009A46AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,10 +159,8 @@
 				584AEE701CA41B0400F6D8E4 /* LoginViewController.m */,
 				D0994ECE1C947AA9009A46AE /* AppDelegate.h */,
 				D0994ECF1C947AA9009A46AE /* AppDelegate.m */,
-				D0994ED11C947AA9009A46AE /* ViewController.h */,
-				D0994ED21C947AA9009A46AE /* ViewController.m */,
+				58AF211F1CB7CA3F0078975B /* Assets.xcassets */,
 				D0994ED41C947AA9009A46AE /* Main.storyboard */,
-				D0994EDA1C947AA9009A46AE /* Assets.xcassets */,
 				D0994EDC1C947AA9009A46AE /* LaunchScreen.storyboard */,
 				D0994EDF1C947AA9009A46AE /* Info.plist */,
 				D0994ED71C947AA9009A46AE /* AutoFinder.xcdatamodeld */,
@@ -181,6 +179,8 @@
 				CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */,
 				CEE4F8C71CB54C150074C539 /* CustomAnnotation.h */,
 				CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */,
+				58AF21211CB7CF860078975B /* CustomTabBarViewController.h */,
+				58AF21221CB7CF860078975B /* CustomTabBarViewController.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			files = (
 				CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */,
 				D0994EDE1C947AA9009A46AE /* LaunchScreen.storyboard in Resources */,
-				D0994EDB1C947AA9009A46AE /* Assets.xcassets in Resources */,
+				58AF21201CB7CA3F0078975B /* Assets.xcassets in Resources */,
 				D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,10 +276,10 @@
 			files = (
 				58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */,
 				58236EF81CAE9EF60037AE82 /* User.m in Sources */,
+				58AF21231CB7CF860078975B /* CustomTabBarViewController.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
 				CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */,
 				584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */,
-				D0994ED31C947AA9009A46AE /* ViewController.m in Sources */,
 				584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */,
 				D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */,
 				584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */,
