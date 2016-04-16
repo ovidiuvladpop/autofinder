@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LoginViewController.h"
+#import "PersistenceController.h"
 
 @interface CreateAccountViewController () {}
 
@@ -135,42 +136,30 @@
 
 #pragma mark - Actions
 
-//Method used for creating a new account
--(IBAction)createAccountButtonPressed:(id)sender {
-    
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
-                                                         inManagedObjectContext:appDelegate.managedObjectContext];
-    NSManagedObject *newUser =[[NSManagedObject alloc] initWithEntity:entityDescription
-                                       insertIntoManagedObjectContext:self.context];
-    
-    [newUser setValue:[[self usernameField] text]
-               forKey:@"username"];
-    [newUser setValue:[[self passwordField] text]
-               forKey:@"password"];
-    [newUser setValue:[[self emailField] text]
-               forKey:@"email"];
-    [newUser setValue:[[self phoneNumberField] text]
-               forKey:@"phone"];
-    [newUser setValue:[[self carNumberField] text]
-               forKey:@"car"];
-    [newUser setValue:[NSNumber numberWithInt:3]
-               forKey:@"attempts"];
-    
-    if ([self checkForEmptyTextField]) {
+//Method used for making round buttons.
+- (void)makeRoundButtons:(UIButton *)button {
+    button.layer.cornerRadius = 10;
+    button.clipsToBounds = YES;
+}
+
+-(IBAction)createAccountButtonPressed: (id)sender {
+    if ([self checkForEmptyTextField ]){
         UIAlertView *alertView =[[UIAlertView alloc] initWithTitle:@"Warning"
                                                            message:@"Please fill in all fields !"
                                                           delegate:nil
                                                  cancelButtonTitle:@"Ok"
                                                  otherButtonTitles:nil];
         [alertView show];
-        
     } else {
-        NSError *error;
-        BOOL isSaved = [appDelegate.managedObjectContext save:&error];
+        NSString *username = self.usernameField.text;
+        NSString *password = self.passwordField.text;
+        NSString *email = self.emailField.text;
+        NSString *phoneNumber = self.phoneNumberField.text;
+        NSString *carNumber = self.carNumberField.text;
         
-        if (isSaved) {
+        PersistenceController *persistenceController = [PersistenceController sharedInstance];
+        if ([persistenceController createAccountWithUsername:username password:password email:email phone:phoneNumber car:carNumber]) {
+            
             UIAlertView *alertView =[[UIAlertView alloc] initWithTitle:@"Welcome"
                                                                message:@"Your account has been created !"
                                                               delegate:self
@@ -179,12 +168,6 @@
             [alertView show];
         }
     }
-}
-
-//Method used for making round buttons.
-- (void)makeRoundButtons:(UIButton *)button {
-    button.layer.cornerRadius = 10;
-    button.clipsToBounds = YES;
 }
 
 //Method used for checking empty text fields.
