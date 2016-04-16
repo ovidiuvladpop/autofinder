@@ -12,16 +12,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {
-    
-    NSManagedObjectContext *context;
-    __weak IBOutlet UIButton *takePhotoButton;
-    __weak IBOutlet UIButton *selectPhotoButton;
-    __weak IBOutlet UIButton *sendPhotoButton;
-    
-}
+@interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {}
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
+@property (nonatomic, weak) IBOutlet UIButton *selectPhotoButton;
+@property (nonatomic, weak) IBOutlet UIButton *sendPhotoButton;
+@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end
 
@@ -33,13 +30,13 @@
     
     [super viewDidLoad];
     
-    [self makeRoundButtons:takePhotoButton];
-    [self makeRoundButtons:selectPhotoButton];
-    [self makeRoundButtons:sendPhotoButton];
-    [sendPhotoButton setHidden:YES];
+    [self makeRoundButtons:self.takePhotoButton];
+    [self makeRoundButtons:self.selectPhotoButton];
+    [self makeRoundButtons:self.sendPhotoButton];
+    [self.sendPhotoButton setHidden:YES];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
+    self.context = [appDelegate managedObjectContext];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -130,7 +127,7 @@
     NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.longitude];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:appDelegate.managedObjectContext];
-    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.context];
     
     NSData *dataWithImage = UIImageJPEGRepresentation(image, 1.0);
     [newPhoto setValue:dataWithImage forKey:@"photo"];
@@ -151,7 +148,7 @@
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.image = chosenImage;
     }];
-    [sendPhotoButton setHidden:NO];
+    [self.sendPhotoButton setHidden:NO];
     
     [self sendToDatabase:chosenImage];
 }

@@ -15,15 +15,12 @@
 #import "CarIncidentDetailViewController.h"
 #import "CustomAnnotation.h"
 
-@interface CarIncidentsViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {
-    
-    NSManagedObjectContext *context;
-    CustomAnnotation *customTappedAnnotation;
-    
-}
+@interface CarIncidentsViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {}
 
 @property (nonatomic, strong) IBOutlet SKMapView *mapView;
 @property (nonatomic, assign) int count;
+@property (nonatomic, weak) NSManagedObjectContext *context;
+@property (nonatomic, strong) CustomAnnotation *customTappedAnnotation;
 
 @end
 
@@ -47,7 +44,7 @@
     [super viewDidLoad];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
+    self.context = [appDelegate managedObjectContext];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -71,6 +68,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
     [self.mapView animateToZoomLevel:14];
     [self.mapView centerOnCurrentPosition];
     [self addIncidentToMap];
@@ -128,15 +126,15 @@
     NSString *stringFromDate = [formatter stringFromDate:annotation.incidentDate];
     self.mapView.calloutView.subtitleLabel.text = stringFromDate;
     
-    customTappedAnnotation = [CustomAnnotation annotation];
-    customTappedAnnotation.location = annotation.location;
-    customTappedAnnotation.annotationType = annotation.annotationType;
-    customTappedAnnotation.identifier = annotation.identifier;
-    customTappedAnnotation.imageIncident = annotation.imageIncident;
-    customTappedAnnotation.incidentDate = annotation.incidentDate;
-    customTappedAnnotation.streetName=annotation.streetName;
+    self.customTappedAnnotation = [CustomAnnotation annotation];
+    self.customTappedAnnotation.location = annotation.location;
+    self.customTappedAnnotation.annotationType = annotation.annotationType;
+    self.customTappedAnnotation.identifier = annotation.identifier;
+    self.customTappedAnnotation.imageIncident = annotation.imageIncident;
+    self.customTappedAnnotation.incidentDate = annotation.incidentDate;
+    self.customTappedAnnotation.streetName=annotation.streetName;
     
-    [self.mapView showCalloutForAnnotation:customTappedAnnotation withOffset:CGPointMake(0, 42) animated:YES];
+    [self.mapView showCalloutForAnnotation:self.customTappedAnnotation withOffset:CGPointMake(0, 42) animated:YES];
 }
 
 - (void)mapView:(SKMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
@@ -157,10 +155,10 @@
 -(void)addIncidentToMap {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context]];
+    [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.context]];
     
     NSError *error = nil;
-    NSArray *results = [context executeFetchRequest:request error:&error];
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
     
     NSManagedObject *object;
     for (object in results) {
@@ -183,8 +181,8 @@
         
         CarIncidentDetailViewController *carIncidentDetailViewController = (CarIncidentDetailViewController *)segue.destinationViewController;
         
-        carIncidentDetailViewController.streetName = customTappedAnnotation.streetName;
-        carIncidentDetailViewController.imageIncident = customTappedAnnotation.imageIncident;
+        carIncidentDetailViewController.streetName = self.customTappedAnnotation.streetName;
+        carIncidentDetailViewController.imageIncident = self.customTappedAnnotation.imageIncident;
     }
     
 }

@@ -13,13 +13,10 @@
 #import <SKMaps/SKAnnotation.h>
 #import <SKMaps/SKMapViewDelegate.h>
 
-@interface HomeViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {
-    
-    __weak IBOutlet UIButton *findDriverButton;
-    __weak IBOutlet UIButton *carIncidentsButton;
-    
-}
+@interface HomeViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {}
 
+@property (nonatomic, weak) IBOutlet UIButton *findDriverButton;
+@property (nonatomic, weak) IBOutlet UIButton *carIncidentsButton;
 @property (nonatomic, strong) IBOutlet SKMapView *mapView;
 
 @end
@@ -106,14 +103,15 @@
     
     [super viewWillAppear:animated];
     
-    [self makeRoundButtons:findDriverButton];
-    [self makeRoundButtons:carIncidentsButton];
+    [self makeRoundButtons:self.findDriverButton];
+    [self makeRoundButtons:self.carIncidentsButton];
     [self.navigationController.navigationBar setHidden:YES];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
     [self.mapView animateToZoomLevel:14];
     [self.mapView centerOnCurrentPosition];
     [self showAnnotation];

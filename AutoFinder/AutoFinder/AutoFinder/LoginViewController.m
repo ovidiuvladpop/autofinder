@@ -12,14 +12,10 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface LoginViewController() {
-    
-    NSManagedObjectContext *context;
-    __weak IBOutlet UIButton *loginButton;
-    __weak UITextField *activeField;
-    __weak IBOutlet UIButton *not;
-   
-}
+@interface LoginViewController() {}
+
+@property (nonatomic, weak) NSManagedObjectContext *context;
+@property (nonatomic, weak) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -32,11 +28,11 @@
     [super viewDidLoad];
     
     AppDelegate *appdelegate= [[UIApplication sharedApplication]delegate];
-    context = [appdelegate managedObjectContext];
+    self.context = [appdelegate managedObjectContext];
     
     [[self usernameField] setDelegate:self];
     [[self passwordField] setDelegate:self];
-    [self makeRoundButtons:loginButton];
+    [self makeRoundButtons:self.loginButton];
     
     _scrollView.contentSize = CGSizeMake(600, 800);
     
@@ -56,12 +52,14 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
     [self registerForKeyboardNotifications];
     
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     
+    [super viewDidDisappear:animated];
     [self unRegisterForKeyboardNotifications];
     
 }
@@ -98,15 +96,27 @@
 
 - (void)registerForKeyboardNotifications {
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowNotification:)
+                                                 name:UIKeyboardWillShowNotification
+                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideNotification:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
 }
 
 - (void)unRegisterForKeyboardNotifications {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
     
 }
 
@@ -115,7 +125,7 @@
 //Method used for login the user in application.
 - (IBAction)loginButtonPressed:(id)sender {
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User"
-                                                  inManagedObjectContext:context];
+                                                  inManagedObjectContext:self.context];
     NSFetchRequest *request = [[NSFetchRequest alloc]init];
     [request setEntity:entitydesc];
     
@@ -123,7 +133,7 @@
     [request setPredicate:predicate];
     
     NSError *error;
-    NSArray *matchingData=[context executeFetchRequest:request
+    NSArray *matchingData=[self.context executeFetchRequest:request
                                                  error:&error];
     
     if(matchingData.count <= 0){

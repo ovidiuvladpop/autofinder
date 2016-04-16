@@ -10,11 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface LogoutViewController () <UIAlertViewDelegate> {
-    
-    __weak IBOutlet UIButton *logoutButton;
-    
-}
+@interface LogoutViewController () <UIAlertViewDelegate> {}
+
+@property (nonatomic, weak) IBOutlet UIButton *logoutButton;
 
 @end
 
@@ -25,7 +23,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [self makeRoundButtons:logoutButton];
+    [self makeRoundButtons:self.logoutButton];
     
 }
 

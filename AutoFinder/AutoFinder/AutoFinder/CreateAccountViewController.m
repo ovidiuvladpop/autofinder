@@ -12,13 +12,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LoginViewController.h"
 
-@interface CreateAccountViewController () {
-    
-    __weak IBOutlet UIButton *createAccountButton;
-    __weak UITextField *activeField;
-    NSManagedObjectContext *context;
-    
-}
+@interface CreateAccountViewController () {}
+
+@property (nonatomic, weak) IBOutlet UIButton *createAccountButton;
+@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end
 
@@ -34,9 +31,9 @@
     [self.phoneNumberField setDelegate:self];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
+    self.context = [appDelegate managedObjectContext];
     
-    CGRect frame = createAccountButton.frame;
+    CGRect frame = self.createAccountButton.frame;
     float height = CGRectGetMaxY(frame) + 20.0;
     
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, height);
@@ -51,19 +48,21 @@
     
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:NO];
-    [self makeRoundButtons:createAccountButton];
+    [self makeRoundButtons:self.createAccountButton];
     self.title = @"Create a new account";
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
     [self registerForKeyboardNotifications];
     
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     
+    [super viewDidDisappear:animated];
     [self unRegisterForKeyboardNotifications];
     
 }
@@ -144,7 +143,7 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
                                                          inManagedObjectContext:appDelegate.managedObjectContext];
     NSManagedObject *newUser =[[NSManagedObject alloc] initWithEntity:entityDescription
-                                       insertIntoManagedObjectContext:context];
+                                       insertIntoManagedObjectContext:self.context];
     
     [newUser setValue:[[self usernameField] text]
                forKey:@"username"];

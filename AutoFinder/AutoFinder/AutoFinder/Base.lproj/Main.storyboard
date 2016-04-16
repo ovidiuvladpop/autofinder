@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Bc-YS-k0a">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -183,7 +183,6 @@
                     <connections>
                         <outlet property="autoLabel" destination="vZd-E1-QkV" id="32d-da-Pec"/>
                         <outlet property="loginButton" destination="Lyi-az-aZf" id="zgT-8a-zfp"/>
-                        <outlet property="not" destination="ttR-wp-Y0d" id="zRo-25-uh0"/>
                         <outlet property="passwordField" destination="3ge-5K-aY3" id="ST7-fg-Ust"/>
                         <outlet property="scrollView" destination="Zas-ZL-anb" id="KHy-3z-32v"/>
                         <outlet property="usernameField" destination="GPU-Hy-jPa" id="MjC-IT-8CT"/>
@@ -1166,7 +1165,6 @@
                         <outlet property="editAccountButton" destination="JnA-is-PYl" id="mGv-fi-8Cv"/>
                         <outlet property="emailField" destination="qdE-fI-To1" id="NMJ-DW-9XN"/>
                         <outlet property="phoneNumberField" destination="EDs-FQ-u4J" id="bBj-x1-Laa"/>
-                        <outlet property="save" destination="zEl-pn-zWb" id="sHj-7k-SIH"/>
                         <outlet property="saveAccountButton" destination="zEl-pn-zWb" id="2Hx-zD-jQD"/>
                         <outlet property="usernameField" destination="p8b-Gv-0r5" id="PCY-tP-vk6"/>
                     </connections>
@@ -1517,18 +1515,18 @@
                                 <exclude reference="PeB-Hl-ZYY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LmC-o0-G5v"/>
-                                <exclude reference="Q1i-1m-QEr"/>
-                                <exclude reference="Qn2-H3-b9b"/>
-                                <exclude reference="vfe-RE-css"/>
+                                <exclude reference="1Bt-bu-UtZ"/>
+                                <exclude reference="44J-WB-Jho"/>
                                 <exclude reference="LPG-om-MWX"/>
                                 <exclude reference="hKH-yQ-ixD"/>
                                 <exclude reference="ngv-1G-N7f"/>
                                 <exclude reference="2XZ-f6-gDG"/>
                                 <exclude reference="9t0-ey-hiw"/>
                                 <exclude reference="yeL-HC-VOS"/>
-                                <exclude reference="1Bt-bu-UtZ"/>
-                                <exclude reference="44J-WB-Jho"/>
+                                <exclude reference="LmC-o0-G5v"/>
+                                <exclude reference="Q1i-1m-QEr"/>
+                                <exclude reference="Qn2-H3-b9b"/>
+                                <exclude reference="vfe-RE-css"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1538,18 +1536,18 @@
                                 <include reference="PeB-Hl-ZYY"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="LmC-o0-G5v"/>
-                                <include reference="Q1i-1m-QEr"/>
-                                <include reference="Qn2-H3-b9b"/>
-                                <include reference="vfe-RE-css"/>
+                                <include reference="1Bt-bu-UtZ"/>
+                                <include reference="44J-WB-Jho"/>
                                 <include reference="LPG-om-MWX"/>
                                 <include reference="hKH-yQ-ixD"/>
                                 <include reference="ngv-1G-N7f"/>
                                 <include reference="2XZ-f6-gDG"/>
                                 <include reference="9t0-ey-hiw"/>
                                 <include reference="yeL-HC-VOS"/>
-                                <include reference="1Bt-bu-UtZ"/>
-                                <include reference="44J-WB-Jho"/>
+                                <include reference="LmC-o0-G5v"/>
+                                <include reference="Q1i-1m-QEr"/>
+                                <include reference="Qn2-H3-b9b"/>
+                                <include reference="vfe-RE-css"/>
                             </mask>
                         </variation>
                     </view>

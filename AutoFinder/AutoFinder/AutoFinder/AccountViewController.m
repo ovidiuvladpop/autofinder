@@ -10,20 +10,19 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AccountViewController() {
-      NSManagedObjectContext *context;
-    
-    __weak IBOutlet UITextField *usernameField;
-    __weak IBOutlet UITextField *emailField;
-    __weak IBOutlet UITextField *phoneNumberField;
-    __weak IBOutlet UITextField *carNumberField;
-    __weak IBOutlet UITextField *attemptsField;
-    __weak IBOutlet UIButton *save;
-    
-    __weak IBOutlet UIButton *buyAttemptsButton;
-    __weak IBOutlet UIButton *editAccountButton;
-    __weak IBOutlet UIButton *saveAccountButton;
-}
+@interface AccountViewController() {}
+
+@property (nonatomic, weak) IBOutlet UIButton *buyAttemptsButton;
+@property (nonatomic, weak) IBOutlet UIButton *editAccountButton;
+@property (nonatomic, weak) IBOutlet UIButton *saveAccountButton;
+
+@property (nonatomic, weak) IBOutlet UITextField *usernameField;
+@property (nonatomic, weak) IBOutlet UITextField *emailField;
+@property (nonatomic, weak) IBOutlet UITextField *phoneNumberField;
+@property (nonatomic, weak) IBOutlet UITextField *carNumberField;
+@property (nonatomic, weak) IBOutlet UITextField *attemptsField;
+
+@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end
 
@@ -36,14 +35,15 @@
     [super viewDidLoad];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
+    self.context = [appDelegate managedObjectContext];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
-    [self makeRoundButtons:buyAttemptsButton];
-    [self makeRoundButtons:editAccountButton];
-    [self makeRoundButtons:saveAccountButton];
+    [self makeRoundButtons:self.buyAttemptsButton];
+    [self makeRoundButtons:self.editAccountButton];
+    [self makeRoundButtons:self.saveAccountButton];
     
 }
 
@@ -51,7 +51,7 @@
     
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:YES];
-    [save setHidden:YES];
+    [self.saveAccountButton setHidden:YES];
     [self setUserProperties];
     
 }
@@ -59,10 +59,10 @@
 #pragma mark - Actions
 
 - (void)dismissKeyboard {
-    [usernameField resignFirstResponder];
-    [emailField resignFirstResponder];
-    [phoneNumberField resignFirstResponder];
-    [carNumberField resignFirstResponder];
+    [self.usernameField resignFirstResponder];
+    [self.emailField resignFirstResponder];
+    [self.phoneNumberField resignFirstResponder];
+    [self.carNumberField resignFirstResponder];
 }
 
 - (void)makeRoundButtons:(UIButton *)button {
@@ -71,20 +71,20 @@
 }
 
 - (IBAction)editButton:(id)sender {
-    [save setHidden:NO];
+    [self.saveAccountButton setHidden:NO];
     
-    [usernameField setEnabled:YES];
-    [emailField setEnabled:YES];
-    [phoneNumberField setEnabled:YES];
-    [carNumberField setEnabled:YES];
+    [self.usernameField setEnabled:YES];
+    [self.emailField setEnabled:YES];
+    [self.phoneNumberField setEnabled:YES];
+    [self.carNumberField setEnabled:YES];
     
 }
 
 - (BOOL)checkForEmptyField {
-    if (([usernameField.text isEqualToString:@""]) ||
-        ([emailField.text isEqualToString:@""]) ||
-        ([phoneNumberField.text isEqualToString:@""]) ||
-        ([carNumberField.text isEqualToString:@""])) {
+    if (([self.usernameField.text isEqualToString:@""]) ||
+        ([self.emailField.text isEqualToString:@""]) ||
+        ([self.phoneNumberField.text isEqualToString:@""]) ||
+        ([self.carNumberField.text isEqualToString:@""])) {
         return YES;
     }
     return NO;
@@ -101,12 +101,12 @@
         [alert show];
         
     } else {
-        [save setHidden:YES];
+        [self.saveAccountButton setHidden:YES];
     
-        [usernameField setEnabled:NO];
-        [emailField setEnabled:NO];
-        [phoneNumberField setEnabled:NO];
-        [carNumberField setEnabled:NO];
+        [self.usernameField setEnabled:NO];
+        [self.emailField setEnabled:NO];
+        [self.phoneNumberField setEnabled:NO];
+        [self.carNumberField setEnabled:NO];
     
         [self updateUser];
         [self updateDefaultUser];
@@ -117,7 +117,7 @@
 - (IBAction)buyAttempts:(id)sender {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -125,13 +125,13 @@
     [request setPredicate:predicate];
     
     NSError *error = nil;
-    NSArray *results = [context executeFetchRequest:request error:&error];
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
     
     NSManagedObject* obj = [results objectAtIndex:0];
     NSNumber *numberOfAttempts = [NSNumber numberWithInt:([[obj valueForKey:@"attempts"] intValue] +3 )];
     
     [obj setValue:numberOfAttempts forKey:@"attempts"];
-    [context save:&error];
+    [self.context save:&error];
     
     [self updateDefaultUser:numberOfAttempts];
     [self setUserProperties];
@@ -148,10 +148,10 @@
 - (void)updateDefaultUser {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:usernameField.text       forKey:@"username"];
-    [defaults setObject:emailField.text          forKey:@"email"];
-    [defaults setObject:phoneNumberField.text    forKey:@"phone"];
-    [defaults setObject:carNumberField.text      forKey:@"car"];
+    [defaults setObject:self.usernameField.text       forKey:@"username"];
+    [defaults setObject:self.emailField.text          forKey:@"email"];
+    [defaults setObject:self.phoneNumberField.text    forKey:@"phone"];
+    [defaults setObject:self.carNumberField.text      forKey:@"car"];
     
     [defaults synchronize];
 }
@@ -159,7 +159,7 @@
 -(void)updateUser {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -167,34 +167,34 @@
     [request setPredicate:predicate];
     
     NSError *error = nil;
-    NSArray *results = [context executeFetchRequest:request error:&error];
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
     
     NSManagedObject* obj = [results objectAtIndex:0];
-    [obj setValue: usernameField.text forKey:@"username"];
-    [obj setValue:emailField.text forKey:@"email"];
-    [obj setValue:phoneNumberField.text forKey:@"phone"];
-    [obj setValue:carNumberField.text forKey:@"car"];
-    [context save:&error];
+    [obj setValue:self.usernameField.text forKey:@"username"];
+    [obj setValue:self.emailField.text forKey:@"email"];
+    [obj setValue:self.phoneNumberField.text forKey:@"phone"];
+    [obj setValue:self.carNumberField.text forKey:@"car"];
+    [self.context save:&error];
 }
 
 -(void)setUserProperties {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    usernameField.text     = [defaults objectForKey:@"username"];
-    emailField.text        = [defaults objectForKey:@"email"];
-    phoneNumberField.text  = [defaults objectForKey:@"phone"];
-    carNumberField.text    = [defaults objectForKey:@"car"];
-    attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
+    self.usernameField.text     = [defaults objectForKey:@"username"];
+    self.emailField.text        = [defaults objectForKey:@"email"];
+    self.phoneNumberField.text  = [defaults objectForKey:@"phone"];
+    self.carNumberField.text    = [defaults objectForKey:@"car"];
+    self.attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
 }
 
 #pragma mark - UITextFieldDelegate's methods
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [usernameField resignFirstResponder];
-    [emailField resignFirstResponder];
-    [phoneNumberField resignFirstResponder];
-    [carNumberField resignFirstResponder];
+    [self.usernameField resignFirstResponder];
+    [self.emailField resignFirstResponder];
+    [self.phoneNumberField resignFirstResponder];
+    [self.carNumberField resignFirstResponder];
     return NO;
     
 }
