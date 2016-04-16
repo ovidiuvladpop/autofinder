@@ -103,7 +103,6 @@
             attempts = [obj valueForKey:@"attempts"];
         }
         
-        
         [self saveUser:username withPassword:password email:email phoneNumber:phone carNumber:car andAttempts:attempts];
         
         return YES;
@@ -132,6 +131,61 @@
     
 }
 
+- (void)buyAttempts {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", [defaults objectForKey:@"email"]];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    
+    NSManagedObject* obj = [results objectAtIndex:0];
+    NSNumber *numberOfAttempts = [NSNumber numberWithInt:([[obj valueForKey:@"attempts"] intValue] + kNumberOfAttempts)];
+    
+    [obj setValue:numberOfAttempts forKey:@"attempts"];
+    [self.context save:&error];
+    
+    [self updateDefaultUser:numberOfAttempts];
+}
+
+- (void)updateDefaultUser:(NSNumber *)numberOfAttempts {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:numberOfAttempts forKey:@"attempts"];
+    [defaults synchronize];
+}
+
+- (BOOL)updateUser:(NSString *)username email:(NSString *)email phone:(NSString *)phone andCar:(NSString *)car {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", [defaults objectForKey:@"email"]];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    
+    NSManagedObject* obj = [results objectAtIndex:0];
+    [obj setValue:username forKey:@"username"];
+    [obj setValue:email forKey:@"email"];
+    [obj setValue:phone forKey:@"phone"];
+    [obj setValue:car forKey:@"car"];
+    
+    if ([self.context save:&error]) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 
 @end

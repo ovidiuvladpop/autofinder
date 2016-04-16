@@ -9,6 +9,7 @@
 #import "AccountViewController.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PersistenceController.h"
 
 @interface AccountViewController() {}
 
@@ -22,8 +23,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *carNumberField;
 @property (nonatomic, weak) IBOutlet UITextField *attemptsField;
 
-@property (nonatomic, weak) NSManagedObjectContext *context;
-
 @end
 
 @implementation AccountViewController
@@ -33,9 +32,6 @@
 -(void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.context = [appDelegate managedObjectContext];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
@@ -80,6 +76,18 @@
     
 }
 
+-(void)setUserProperties {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    self.usernameField.text     = [defaults objectForKey:@"username"];
+    self.emailField.text        = [defaults objectForKey:@"email"];
+    self.phoneNumberField.text  = [defaults objectForKey:@"phone"];
+    self.carNumberField.text    = [defaults objectForKey:@"car"];
+    self.attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
+    
+}
+
 - (BOOL)checkForEmptyField {
     if (([self.usernameField.text isEqualToString:@""]) ||
         ([self.emailField.text isEqualToString:@""]) ||
@@ -101,6 +109,7 @@
         [alert show];
         
     } else {
+        
         [self.saveAccountButton setHidden:YES];
     
         [self.usernameField setEnabled:NO];
@@ -108,44 +117,17 @@
         [self.phoneNumberField setEnabled:NO];
         [self.carNumberField setEnabled:NO];
     
-        [self updateUser];
+        PersistenceController *instance = [PersistenceController sharedInstance];
+        [instance updateUser:self.usernameField.text email:self.emailField.text phone:self.phoneNumberField.text andCar:self.carNumberField.text];
         [self updateDefaultUser];
+        [self setUserProperties];
+        
     }
     
 }
 
-- (IBAction)buyAttempts:(id)sender {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", [defaults objectForKey:@"email"]];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *results = [self.context executeFetchRequest:request error:&error];
-    
-    NSManagedObject* obj = [results objectAtIndex:0];
-    NSNumber *numberOfAttempts = [NSNumber numberWithInt:([[obj valueForKey:@"attempts"] intValue] +3 )];
-    
-    [obj setValue:numberOfAttempts forKey:@"attempts"];
-    [self.context save:&error];
-    
-    [self updateDefaultUser:numberOfAttempts];
-    [self setUserProperties];
-    
-}
-- (void)updateDefaultUser:(NSNumber *)numberOfAttempts {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:numberOfAttempts forKey:@"attempts"];
-    [defaults synchronize];
-}
-
 - (void)updateDefaultUser {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:self.usernameField.text       forKey:@"username"];
@@ -154,37 +136,16 @@
     [defaults setObject:self.carNumberField.text      forKey:@"car"];
     
     [defaults synchronize];
+    
 }
 
--(void)updateUser {
+- (IBAction)buyAttempts:(id)sender {
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.context]];
+    PersistenceController *instance = [PersistenceController sharedInstance];
+    [instance buyAttempts];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self setUserProperties];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", [defaults objectForKey:@"email"]];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *results = [self.context executeFetchRequest:request error:&error];
-    
-    NSManagedObject* obj = [results objectAtIndex:0];
-    [obj setValue:self.usernameField.text forKey:@"username"];
-    [obj setValue:self.emailField.text forKey:@"email"];
-    [obj setValue:self.phoneNumberField.text forKey:@"phone"];
-    [obj setValue:self.carNumberField.text forKey:@"car"];
-    [self.context save:&error];
-}
-
--(void)setUserProperties {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    self.usernameField.text     = [defaults objectForKey:@"username"];
-    self.emailField.text        = [defaults objectForKey:@"email"];
-    self.phoneNumberField.text  = [defaults objectForKey:@"phone"];
-    self.carNumberField.text    = [defaults objectForKey:@"car"];
-    self.attemptsField.text     = [[defaults objectForKey:@"attempts"] stringValue];
 }
 
 #pragma mark - UITextFieldDelegate's methods
