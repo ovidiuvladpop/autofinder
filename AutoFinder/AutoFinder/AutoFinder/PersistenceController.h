@@ -13,4 +13,5 @@
 
 + (id)sharedInstance;
 -(BOOL)createAccountWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email phone:(NSString *)phone car:(NSString *)car;
+-(BOOL)loginUser:(NSString*)username andPassword:(NSString*)password;
 @end

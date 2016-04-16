@@ -16,7 +16,6 @@
 @interface CreateAccountViewController () {}
 
 @property (nonatomic, weak) IBOutlet UIButton *createAccountButton;
-@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end
 
@@ -30,9 +29,6 @@
     [self.usernameField setDelegate:self];
     [self.passwordField setDelegate:self];
     [self.phoneNumberField setDelegate:self];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.context = [appDelegate managedObjectContext];
     
     CGRect frame = self.createAccountButton.frame;
     float height = CGRectGetMaxY(frame) + 20.0;
@@ -144,13 +140,16 @@
 
 -(IBAction)createAccountButtonPressed: (id)sender {
     if ([self checkForEmptyTextField ]){
+        
         UIAlertView *alertView =[[UIAlertView alloc] initWithTitle:@"Warning"
                                                            message:@"Please fill in all fields !"
                                                           delegate:nil
                                                  cancelButtonTitle:@"Ok"
                                                  otherButtonTitles:nil];
         [alertView show];
+        
     } else {
+        
         NSString *username = self.usernameField.text;
         NSString *password = self.passwordField.text;
         NSString *email = self.emailField.text;
@@ -166,6 +165,7 @@
                                                      cancelButtonTitle:@"Login"
                                                      otherButtonTitles:nil];
             [alertView show];
+            
         }
     }
 }
