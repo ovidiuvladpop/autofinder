@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "CarIncidentDetailViewController.h"
 #import "CustomAnnotation.h"
+#import <SKMaps/SKPositionerService.h>
 
 @interface CarIncidentsViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {}
 
@@ -21,6 +22,7 @@
 @property (nonatomic, assign) int count;
 @property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, strong) CustomAnnotation *customTappedAnnotation;
+@property (nonatomic, weak) SKPositionerService *positionerService;
 
 @end
 
@@ -46,10 +48,8 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.context = [appDelegate managedObjectContext];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
+    self.positionerService = [SKPositionerService sharedInstance];
+    [self.positionerService startLocationUpdate];
     
     self.mapView.settings.showCompass=YES;
     self.mapView.delegate = self;
@@ -139,7 +139,7 @@
 
 - (void)mapView:(SKMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     
-    if ((coordinate.latitude != self.currentLocation.coordinate.latitude) && (coordinate.longitude != self.currentLocation.coordinate.longitude)) {
+    if ((coordinate.latitude != self.positionerService.currentCoordinate.latitude) && (coordinate.longitude != self.positionerService.currentCoordinate.longitude)) {
         self.mapView.calloutView.hidden = YES;
     }
     
@@ -184,14 +184,6 @@
         carIncidentDetailViewController.streetName = self.customTappedAnnotation.streetName;
         carIncidentDetailViewController.imageIncident = self.customTappedAnnotation.imageIncident;
     }
-    
-}
-
-#pragma mark - CLLocationManagerDelegate's methods
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-    self.currentLocation = [locations lastObject];
     
 }
 

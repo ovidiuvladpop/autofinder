@@ -12,9 +12,7 @@
 #import <SKMaps/SKAnnotation.h>
 #import <SKMaps/SKAnnotationView.h>
 
-@interface TakePhotoViewController : UIViewController <CLLocationManagerDelegate>
+@interface TakePhotoViewController : UIViewController 
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation* currentLocation;
 
 @end

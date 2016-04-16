@@ -10,9 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <SKMaps/SKMaps.h>
 
-@interface HomeViewController : UIViewController <CLLocationManagerDelegate>
+@interface HomeViewController : UIViewController 
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation* currentLocation;
 
 @end

@@ -12,12 +12,15 @@
 #import <SKMaps/SKAnimationSettings.h>
 #import <SKMaps/SKAnnotation.h>
 #import <SKMaps/SKMapViewDelegate.h>
+#import <SKMaps/SKPositionerService.h>
 
 @interface HomeViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {}
 
 @property (nonatomic, weak) IBOutlet UIButton *findDriverButton;
 @property (nonatomic, weak) IBOutlet UIButton *carIncidentsButton;
 @property (nonatomic, strong) IBOutlet SKMapView *mapView;
+@property (nonatomic, weak) SKPositionerService *positionerService;
+
 
 @end
 
@@ -29,7 +32,7 @@
 - (void)showAnnotation {
     
     SKAnnotation *annotation =[SKAnnotation annotation];
-    annotation.location = self.currentLocation.coordinate;
+    annotation.location = self.positionerService.currentCoordinate;
     annotation.annotationType = 32;
     
     SKAnimationSettings *animationSettings = [SKAnimationSettings animationSettings];
@@ -67,7 +70,7 @@
 //Called when the map is tapped.
 - (void)mapView:(SKMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     
-    if ((coordinate.latitude != self.currentLocation.coordinate.latitude) && (coordinate.longitude != self.currentLocation.coordinate.longitude)) {
+    if ((coordinate.latitude != self.positionerService.currentCoordinate.latitude) && (coordinate.longitude != self.positionerService.currentCoordinate.longitude)) {
         self.mapView.calloutView.hidden = YES;
     }
     
@@ -76,10 +79,10 @@
 #pragma mark - CLLocationManagerDelegate's methods
 
 //Method invoked when new locations are available.
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
-    self.currentLocation = [locations lastObject];
-}
+  //  self.currentLocation = [locations lastObject];
+//}
 
 #pragma mark - UIViewController
 
@@ -88,11 +91,13 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.positionerService = [SKPositionerService sharedInstance];
+    [self.positionerService startLocationUpdate];
+    //self.locationManager = [[CLLocationManager alloc] init];
+    //self.locationManager.delegate = self;
+    //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startUpdatingLocation];
     self.mapView.settings.panningEnabled = NO;
     self.mapView.settings.rotationEnabled = NO;
     self.mapView.calloutView.rightButton.hidden = YES;

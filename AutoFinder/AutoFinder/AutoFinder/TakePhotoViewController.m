@@ -11,6 +11,7 @@
 #import "FindDriverViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <SKMaps/SKPositionerService.h>
 
 @interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {}
 
@@ -19,7 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *selectPhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendPhotoButton;
 @property (nonatomic, weak) NSManagedObjectContext *context;
-
+@property (nonatomic, weak) SKPositionerService *positionerService;
 @end
 
 @implementation TakePhotoViewController 
@@ -38,11 +39,8 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.context = [appDelegate managedObjectContext];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    [self.locationManager startUpdatingLocation];
+    self.positionerService = [SKPositionerService sharedInstance];
+    [self.positionerService startLocationUpdate];
     
 }
 
@@ -55,15 +53,6 @@
 
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-
-#pragma mark - CLLocationManagerDelegate's methods
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-    self.currentLocation = [locations lastObject];
-    
 }
 
 #pragma mark - Actions
@@ -123,8 +112,8 @@
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-    NSNumber *latitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.latitude];
-    NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.currentLocation.coordinate.longitude];
+    NSNumber *latitude = [[NSNumber alloc] initWithFloat:self.positionerService.currentCoordinate.latitude];
+    NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.positionerService.currentCoordinate.longitude];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:appDelegate.managedObjectContext];
     NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.context];
