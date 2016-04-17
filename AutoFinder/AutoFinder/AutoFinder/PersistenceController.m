@@ -7,6 +7,7 @@
 //
 
 #import "PersistenceController.h"
+
 #define kNumberOfAttempts 3
 
 @interface PersistenceController() {}
@@ -85,8 +86,11 @@
                                                       error:&error];
     
     if(matchingData.count <= 0){
+        
         return NO;
+        
     } else {
+        
         NSString *username;
         NSString *password;
         NSString *email;
@@ -95,17 +99,20 @@
         NSNumber *attempts;
         
         for(NSManagedObjectContext *obj in matchingData) {
+            
             username = [obj valueForKey:@"username"];
             password = [obj valueForKey:@"password"];
             email    = [obj valueForKey:@"email"];
             phone    = [obj valueForKey:@"phone"];
             car      = [obj valueForKey:@"car"];
             attempts = [obj valueForKey:@"attempts"];
+            
         }
         
         [self saveUser:username withPassword:password email:email phoneNumber:phone carNumber:car andAttempts:attempts];
         
         return YES;
+        
     }
 }
 
@@ -181,11 +188,57 @@
     [obj setValue:car forKey:@"car"];
     
     if ([self.context save:&error]) {
+        [self updateDefaultUser:username email:email phoneNumber:phone carNumber:car];
         return YES;
     }
     
     return NO;
 }
 
+
+- (void)updateDefaultUser:(NSString *)username email:(NSString *)email phoneNumber:(NSString *)phoneNumber carNumber:(NSString *)carNumber {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:username      forKey:@"username"];
+    [defaults setObject:email        forKey:@"email"];
+    [defaults setObject:phoneNumber  forKey:@"phone"];
+    [defaults setObject:carNumber    forKey:@"car"];
+    
+    [defaults synchronize];
+    
+}
+
+-(void)sendPhotoToDatabase:(UIImage *)image withCoordinates:(CLLocationCoordinate2D)coordinate {
+    
+    NSNumber *latitude = [[NSNumber alloc] initWithFloat:coordinate.latitude];
+    NSNumber *longitude = [[NSNumber alloc] initWithFloat:coordinate.longitude];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.context];
+    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.context];
+    
+    NSData *dataWithImage = UIImageJPEGRepresentation(image, 1.0);
+    
+    [newPhoto setValue:dataWithImage forKey:@"photo"];
+    [newPhoto setValue:[NSDate date] forKey:@"date"];
+    [newPhoto setValue:latitude forKey:@"latitude"];
+    [newPhoto setValue:longitude forKey:@"longitude"];
+    
+    NSError *error;
+    [self.context save:&error];
+    
+}
+
+- (NSArray *)getAllIncidents {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.context]];
+    
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    
+    return results;
+    
+}
 
 @end

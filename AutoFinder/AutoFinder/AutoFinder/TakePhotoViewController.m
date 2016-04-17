@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <SKMaps/SKPositionerService.h>
+#import "PersistenceController.h"
 
 @interface TakePhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate> {}
 
@@ -19,7 +20,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *selectPhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendPhotoButton;
-@property (nonatomic, weak) NSManagedObjectContext *context;
 @property (nonatomic, weak) SKPositionerService *positionerService;
 @end
 
@@ -35,9 +35,6 @@
     [self makeRoundButtons:self.selectPhotoButton];
     [self makeRoundButtons:self.sendPhotoButton];
     [self.sendPhotoButton setHidden:YES];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.context = [appDelegate managedObjectContext];
     
     self.positionerService = [SKPositionerService sharedInstance];
     [self.positionerService startLocationUpdate];
@@ -103,30 +100,12 @@
         if (buttonIndex == 1) {
             FindDriverViewController *previousViewController = (FindDriverViewController *)[self previousViewController];
             previousViewController.selectedPhotoByUser = self.imageView.image;
+            PersistenceController *instance = [PersistenceController sharedInstance];
+            [instance sendPhotoToDatabase:self.imageView.image withCoordinates:self.positionerService.currentCoordinate];
             [self.navigationController popViewControllerAnimated:YES];
         }
 }
 
-
--(void)sendToDatabase:(UIImage *)image {
-    
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    
-    NSNumber *latitude = [[NSNumber alloc] initWithFloat:self.positionerService.currentCoordinate.latitude];
-    NSNumber *longitude = [[NSNumber alloc] initWithFloat:self.positionerService.currentCoordinate.longitude];
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:appDelegate.managedObjectContext];
-    NSManagedObject *newPhoto =[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.context];
-    
-    NSData *dataWithImage = UIImageJPEGRepresentation(image, 1.0);
-    [newPhoto setValue:dataWithImage forKey:@"photo"];
-    [newPhoto setValue:[NSDate date] forKey:@"date"];
-    [newPhoto setValue:latitude forKey:@"latitude"];
-    [newPhoto setValue:longitude forKey:@"longitude"];
-    
-    NSError *error;
-    [appDelegate.managedObjectContext save:&error];
-}
 
 #pragma mark - Image Picker Controller delegate methods
 
@@ -139,7 +118,6 @@
     }];
     [self.sendPhotoButton setHidden:NO];
     
-    [self sendToDatabase:chosenImage];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

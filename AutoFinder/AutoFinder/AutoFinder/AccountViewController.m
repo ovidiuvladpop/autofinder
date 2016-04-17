@@ -119,25 +119,12 @@
     
         PersistenceController *instance = [PersistenceController sharedInstance];
         [instance updateUser:self.usernameField.text email:self.emailField.text phone:self.phoneNumberField.text andCar:self.carNumberField.text];
-        [self updateDefaultUser];
         [self setUserProperties];
         
     }
     
 }
 
-- (void)updateDefaultUser {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:self.usernameField.text       forKey:@"username"];
-    [defaults setObject:self.emailField.text          forKey:@"email"];
-    [defaults setObject:self.phoneNumberField.text    forKey:@"phone"];
-    [defaults setObject:self.carNumberField.text      forKey:@"car"];
-    
-    [defaults synchronize];
-    
-}
 
 - (IBAction)buyAttempts:(id)sender {
     

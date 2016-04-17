@@ -15,6 +15,7 @@
 #import "CarIncidentDetailViewController.h"
 #import "CustomAnnotation.h"
 #import <SKMaps/SKPositionerService.h>
+#import "PersistenceController.h"
 
 @interface CarIncidentsViewController() <SKMapViewDelegate, SKCalloutViewDelegate> {}
 
@@ -154,13 +155,9 @@
 
 -(void)addIncidentToMap {
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:self.context]];
-    
-    NSError *error = nil;
-    NSArray *results = [self.context executeFetchRequest:request error:&error];
-    
     NSManagedObject *object;
+    NSArray *results = [[PersistenceController sharedInstance] getAllIncidents];
+    
     for (object in results) {
         
         CLLocationCoordinate2D incidentCoordinate;

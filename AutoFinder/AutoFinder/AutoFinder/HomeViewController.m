@@ -93,11 +93,7 @@
     self.mapView.delegate = self;
     self.positionerService = [SKPositionerService sharedInstance];
     [self.positionerService startLocationUpdate];
-    //self.locationManager = [[CLLocationManager alloc] init];
-    //self.locationManager.delegate = self;
-    //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    //[self.locationManager startUpdatingLocation];
     self.mapView.settings.panningEnabled = NO;
     self.mapView.settings.rotationEnabled = NO;
     self.mapView.calloutView.rightButton.hidden = YES;
