@@ -408,14 +408,14 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxc-Zz-DHp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxc-Zz-DHp">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="zmd-2K-u4H">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="156"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="194"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -431,6 +431,17 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-IG-b8a">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70V-yC-719">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cyan="0.025366628167500009" magenta="0.91413748260000005" yellow="0.49139404295" black="0.074430513382500008" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <constraints>
@@ -438,36 +449,50 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="BRP-cb-Rxe" firstAttribute="leading" secondItem="qxc-Zz-DHp" secondAttribute="leading" id="2Nj-ps-ZK8">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="19"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="qEw-fY-c3B" secondAttribute="trailing" id="3GS-4x-fqz"/>
                             <constraint firstItem="qEw-fY-c3B" firstAttribute="top" secondItem="Twj-tr-2gD" secondAttribute="top" id="3It-dv-OSc"/>
+                            <constraint firstItem="70V-yC-719" firstAttribute="top" secondItem="b4b-IG-b8a" secondAttribute="bottom" constant="16" id="5Sa-xk-DPy"/>
+                            <constraint firstItem="b4b-IG-b8a" firstAttribute="top" secondItem="qxc-Zz-DHp" secondAttribute="bottom" constant="20" id="7VX-AN-Vd8"/>
                             <constraint firstItem="qxc-Zz-DHp" firstAttribute="top" secondItem="BRP-cb-Rxe" secondAttribute="bottom" constant="22" id="8bI-W0-jHV">
-                                <variation key="heightClass=regular-widthClass=compact" constant="23"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="18"/>
                             </constraint>
+                            <constraint firstItem="b4b-IG-b8a" firstAttribute="leading" secondItem="BRP-cb-Rxe" secondAttribute="leading" id="Dx7-Mg-8kj"/>
+                            <constraint firstItem="70V-yC-719" firstAttribute="leading" secondItem="qxc-Zz-DHp" secondAttribute="leading" id="Ghj-SE-3gg"/>
+                            <constraint firstItem="b4b-IG-b8a" firstAttribute="trailing" secondItem="BRP-cb-Rxe" secondAttribute="trailing" id="bAt-t7-3As"/>
                             <constraint firstItem="lT1-YW-3Kc" firstAttribute="top" secondItem="qxc-Zz-DHp" secondAttribute="bottom" constant="83" id="eO5-lc-N7g">
-                                <variation key="heightClass=regular-widthClass=compact" constant="82"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="106"/>
                             </constraint>
                             <constraint firstItem="BRP-cb-Rxe" firstAttribute="trailing" secondItem="qxc-Zz-DHp" secondAttribute="trailing" id="fa9-Ux-mY6">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-19"/>
                             </constraint>
                             <constraint firstItem="BRP-cb-Rxe" firstAttribute="top" secondItem="qEw-fY-c3B" secondAttribute="bottom" constant="129" id="gzf-gI-QkC">
-                                <variation key="heightClass=regular-widthClass=compact" constant="56"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="37"/>
                             </constraint>
                             <constraint firstItem="qEw-fY-c3B" firstAttribute="leading" secondItem="Twj-tr-2gD" secondAttribute="leading" id="mVJ-AK-N5L"/>
+                            <constraint firstItem="70V-yC-719" firstAttribute="trailing" secondItem="qxc-Zz-DHp" secondAttribute="trailing" id="pIA-f6-9wI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qEw-fY-c3B"/>
                                 <exclude reference="BRP-cb-Rxe"/>
                                 <exclude reference="qxc-Zz-DHp"/>
+                                <exclude reference="b4b-IG-b8a"/>
+                                <exclude reference="70V-yC-719"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="eO5-lc-N7g"/>
+                                <exclude reference="5Sa-xk-DPy"/>
+                                <exclude reference="Ghj-SE-3gg"/>
+                                <exclude reference="pIA-f6-9wI"/>
                                 <exclude reference="8bI-W0-jHV"/>
                                 <exclude reference="2Nj-ps-ZK8"/>
                                 <exclude reference="fa9-Ux-mY6"/>
                                 <exclude reference="gzf-gI-QkC"/>
+                                <exclude reference="7VX-AN-Vd8"/>
+                                <exclude reference="Dx7-Mg-8kj"/>
+                                <exclude reference="bAt-t7-3As"/>
                                 <exclude reference="0zw-FI-3xf"/>
                                 <exclude reference="3GS-4x-fqz"/>
                                 <exclude reference="3It-dv-OSc"/>
@@ -479,13 +504,21 @@
                                 <include reference="qEw-fY-c3B"/>
                                 <include reference="BRP-cb-Rxe"/>
                                 <include reference="qxc-Zz-DHp"/>
+                                <include reference="b4b-IG-b8a"/>
+                                <include reference="70V-yC-719"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="eO5-lc-N7g"/>
+                                <include reference="5Sa-xk-DPy"/>
+                                <include reference="Ghj-SE-3gg"/>
+                                <include reference="pIA-f6-9wI"/>
                                 <include reference="8bI-W0-jHV"/>
                                 <include reference="2Nj-ps-ZK8"/>
                                 <include reference="fa9-Ux-mY6"/>
                                 <include reference="gzf-gI-QkC"/>
+                                <include reference="7VX-AN-Vd8"/>
+                                <include reference="Dx7-Mg-8kj"/>
+                                <include reference="bAt-t7-3As"/>
                                 <include reference="0zw-FI-3xf"/>
                                 <include reference="3GS-4x-fqz"/>
                                 <include reference="3It-dv-OSc"/>
@@ -495,6 +528,7 @@
                     </view>
                     <connections>
                         <outlet property="image" destination="qEw-fY-c3B" id="Ldq-6M-2jz"/>
+                        <outlet property="incidentDateField" destination="70V-yC-719" id="LCC-Yx-K7Y"/>
                         <outlet property="streetTextbox" destination="qxc-Zz-DHp" id="11D-Ts-c71"/>
                     </connections>
                 </viewController>

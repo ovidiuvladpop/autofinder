@@ -55,18 +55,23 @@
 #pragma mark - Actions
 
 - (void)dismissKeyboard {
+    
     [self.usernameField resignFirstResponder];
     [self.emailField resignFirstResponder];
     [self.phoneNumberField resignFirstResponder];
     [self.carNumberField resignFirstResponder];
+    
 }
 
 - (void)makeRoundButtons:(UIButton *)button {
+    
     button.layer.cornerRadius = 10;
     button.clipsToBounds = YES;
+    
 }
 
 - (IBAction)editButton:(id)sender {
+    
     [self.saveAccountButton setHidden:NO];
     
     [self.usernameField setEnabled:YES];
@@ -89,16 +94,22 @@
 }
 
 - (BOOL)checkForEmptyField {
+    
     if (([self.usernameField.text isEqualToString:@""]) ||
         ([self.emailField.text isEqualToString:@""]) ||
         ([self.phoneNumberField.text isEqualToString:@""]) ||
         ([self.carNumberField.text isEqualToString:@""])) {
+        
         return YES;
+        
     }
+    
     return NO;
+    
 }
 
 - (IBAction)saveButton:(id)sender {
+    
     if ([self checkForEmptyField]) {
         
         UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Warning"
@@ -122,7 +133,6 @@
         [self setUserProperties];
         
     }
-    
 }
 
 
@@ -143,6 +153,7 @@
     [self.emailField resignFirstResponder];
     [self.phoneNumberField resignFirstResponder];
     [self.carNumberField resignFirstResponder];
+    
     return NO;
     
 }

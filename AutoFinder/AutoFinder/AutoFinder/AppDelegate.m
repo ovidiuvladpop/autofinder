@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "CreateAccountViewController.h"
 #import <SKMaps/SKMaps.h>
 
 @interface AppDelegate ()
@@ -15,7 +14,6 @@
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

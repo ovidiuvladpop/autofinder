@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		58236EEE1CAE8BAE0037AE82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236EED1CAE8BAE0037AE82 /* MapKit.framework */; };
-		58236EF81CAE9EF60037AE82 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58236EF71CAE9EF60037AE82 /* User.m */; };
 		58236F021CAEA1FB0037AE82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F011CAEA1FA0037AE82 /* UIKit.framework */; };
 		58236F041CAEA2020037AE82 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F031CAEA2020037AE82 /* CoreLocation.framework */; };
 		58236F061CAEA2090037AE82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F051CAEA2090037AE82 /* Foundation.framework */; };
@@ -19,22 +18,24 @@
 		58236F101CAEA2470037AE82 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F0F1CAEA2460037AE82 /* libz.tbd */; };
 		58236F121CAEA24F0037AE82 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F111CAEA24E0037AE82 /* libc++.tbd */; };
 		58236F141CAEA5F70037AE82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58236F131CAEA5F70037AE82 /* AVFoundation.framework */; };
-		584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */; };
-		584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */; };
-		584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */; };
-		584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */; };
-		584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE701CA41B0400F6D8E4 /* LoginViewController.m */; };
-		584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */; };
-		588006891CA93C6700662C50 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006881CA93C6700662C50 /* LogoutViewController.m */; };
 		58AF21201CB7CA3F0078975B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58AF211F1CB7CA3F0078975B /* Assets.xcassets */; };
-		58AF21231CB7CF860078975B /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AF21221CB7CF860078975B /* CustomTabBarViewController.m */; };
-		58C9AFA81CB3BA7E00A72E96 /* CarIncidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */; };
-		58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C9AFAA1CB3E44B00A72E96 /* Photo.m */; };
-		843A655B1CC24CF6002EC4A6 /* PersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A655A1CC24CF6002EC4A6 /* PersistenceController.m */; };
+		84E7B3D01CC4216100E07C98 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B3CF1CC4216100E07C98 /* Model */; };
+		84E7B3D21CC421D400E07C98 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B3D11CC421D400E07C98 /* Controller */; };
+		84E7B3EC1CC4BF1C00E07C98 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */; };
+		84E7B3EE1CC4BF1C00E07C98 /* CarIncidentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */; };
+		84E7B3F01CC4BF1C00E07C98 /* CarIncidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */; };
+		84E7B3F21CC4BF1C00E07C98 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */; };
+		84E7B3F41CC4BF1C00E07C98 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */; };
+		84E7B3F61CC4BF1C00E07C98 /* FindDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */; };
+		84E7B3F81CC4BF1C00E07C98 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */; };
+		84E7B3FA1CC4BF1C00E07C98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */; };
+		84E7B3FC1CC4BF1C00E07C98 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */; };
+		84E7B3FE1CC4BF1D00E07C98 /* PersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */; };
+		84E7B4001CC4BF1D00E07C98 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */; };
+		84E7B4061CC4BF3100E07C98 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B4021CC4BF3100E07C98 /* Photo.m */; };
+		84E7B4081CC4BF3100E07C98 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B4041CC4BF3100E07C98 /* User.m */; };
 		CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE4F8BE1CB503960074C539 /* SKMaps.bundle */; };
 		CEE4F8C31CB503FF0074C539 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4F8C21CB503FF0074C539 /* SKMaps.framework */; };
-		CEE4F8C61CB50B1A0074C539 /* CarIncidentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */; };
-		CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
 		D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECF1C947AA9009A46AE /* AppDelegate.m */; };
 		D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0994ED41C947AA9009A46AE /* Main.storyboard */; };
@@ -44,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		58236EED1CAE8BAE0037AE82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		58236EF71CAE9EF60037AE82 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		58236F011CAEA1FA0037AE82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58236F031CAEA2020037AE82 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		58236F051CAEA2090037AE82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,36 +55,37 @@
 		58236F0F1CAEA2460037AE82 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		58236F111CAEA24E0037AE82 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		58236F131CAEA5F70037AE82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		584AEE651CA2979B00F6D8E4 /* FindDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDriverViewController.h; sourceTree = "<group>"; };
-		584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDriverViewController.m; sourceTree = "<group>"; };
-		584AEE681CA29B1900F6D8E4 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
-		584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
-		584AEE6B1CA41B0400F6D8E4 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
-		584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
-		584AEE6D1CA41B0400F6D8E4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		584AEE701CA41B0400F6D8E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		584AEE861CA56B7800F6D8E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		584AEE891CA57AF200F6D8E4 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
-		584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
-		588006871CA93C6700662C50 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
-		588006881CA93C6700662C50 /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
 		58AF211F1CB7CA3F0078975B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		58AF21211CB7CF860078975B /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
-		58AF21221CB7CF860078975B /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarViewController.m; sourceTree = "<group>"; };
-		58C9AFA61CB3BA7E00A72E96 /* CarIncidentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarIncidentsViewController.h; sourceTree = "<group>"; };
-		58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentsViewController.m; sourceTree = "<group>"; };
-		58C9AFA91CB3E44B00A72E96 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		58C9AFAA1CB3E44B00A72E96 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		843A65591CC24CF6002EC4A6 /* PersistenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceController.h; sourceTree = "<group>"; };
-		843A655A1CC24CF6002EC4A6 /* PersistenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceController.m; sourceTree = "<group>"; };
+		84E7B3CF1CC4216100E07C98 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
+		84E7B3D11CC421D400E07C98 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
+		84E7B3D51CC4BF1C00E07C98 /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = AutoFinder/Controller/AccountViewController.h; sourceTree = "<group>"; };
+		84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = AutoFinder/Controller/AccountViewController.m; sourceTree = "<group>"; };
+		84E7B3D71CC4BF1C00E07C98 /* CarIncidentDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CarIncidentDetailViewController.h; path = AutoFinder/Controller/CarIncidentDetailViewController.h; sourceTree = "<group>"; };
+		84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CarIncidentDetailViewController.m; path = AutoFinder/Controller/CarIncidentDetailViewController.m; sourceTree = "<group>"; };
+		84E7B3D91CC4BF1C00E07C98 /* CarIncidentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CarIncidentsViewController.h; path = AutoFinder/Controller/CarIncidentsViewController.h; sourceTree = "<group>"; };
+		84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CarIncidentsViewController.m; path = AutoFinder/Controller/CarIncidentsViewController.m; sourceTree = "<group>"; };
+		84E7B3DB1CC4BF1C00E07C98 /* CreateAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateAccountViewController.h; path = AutoFinder/Controller/CreateAccountViewController.h; sourceTree = "<group>"; };
+		84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreateAccountViewController.m; path = AutoFinder/Controller/CreateAccountViewController.m; sourceTree = "<group>"; };
+		84E7B3DD1CC4BF1C00E07C98 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomTabBarViewController.h; path = AutoFinder/Controller/CustomTabBarViewController.h; sourceTree = "<group>"; };
+		84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = AutoFinder/Controller/CustomTabBarViewController.m; sourceTree = "<group>"; };
+		84E7B3DF1CC4BF1C00E07C98 /* FindDriverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FindDriverViewController.h; path = AutoFinder/Controller/FindDriverViewController.h; sourceTree = "<group>"; };
+		84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FindDriverViewController.m; path = AutoFinder/Controller/FindDriverViewController.m; sourceTree = "<group>"; };
+		84E7B3E11CC4BF1C00E07C98 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = AutoFinder/Controller/HomeViewController.h; sourceTree = "<group>"; };
+		84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = AutoFinder/Controller/HomeViewController.m; sourceTree = "<group>"; };
+		84E7B3E31CC4BF1C00E07C98 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = AutoFinder/Controller/LoginViewController.h; sourceTree = "<group>"; };
+		84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = AutoFinder/Controller/LoginViewController.m; sourceTree = "<group>"; };
+		84E7B3E51CC4BF1C00E07C98 /* LogoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutViewController.h; path = AutoFinder/Controller/LogoutViewController.h; sourceTree = "<group>"; };
+		84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LogoutViewController.m; path = AutoFinder/Controller/LogoutViewController.m; sourceTree = "<group>"; };
+		84E7B3E71CC4BF1C00E07C98 /* PersistenceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PersistenceController.h; path = AutoFinder/Controller/PersistenceController.h; sourceTree = "<group>"; };
+		84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PersistenceController.m; path = AutoFinder/Controller/PersistenceController.m; sourceTree = "<group>"; };
+		84E7B3E91CC4BF1C00E07C98 /* TakePhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TakePhotoViewController.h; path = AutoFinder/Controller/TakePhotoViewController.h; sourceTree = "<group>"; };
+		84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TakePhotoViewController.m; path = AutoFinder/Controller/TakePhotoViewController.m; sourceTree = "<group>"; };
+		84E7B4011CC4BF3100E07C98 /* Photo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = AutoFinder/Model/Photo.h; sourceTree = "<group>"; };
+		84E7B4021CC4BF3100E07C98 /* Photo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = AutoFinder/Model/Photo.m; sourceTree = "<group>"; };
+		84E7B4031CC4BF3100E07C98 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = AutoFinder/Model/User.h; sourceTree = "<group>"; };
+		84E7B4041CC4BF3100E07C98 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = User.m; path = AutoFinder/Model/User.m; sourceTree = "<group>"; };
 		CEE4F8BE1CB503960074C539 /* SKMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SKMaps.bundle; sourceTree = "<group>"; };
 		CEE4F8C21CB503FF0074C539 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
-		CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarIncidentDetailViewController.h; sourceTree = "<group>"; };
-		CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarIncidentDetailViewController.m; sourceTree = "<group>"; };
-		CEE4F8C71CB54C150074C539 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
-		CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0994ECC1C947AA9009A46AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0994ECE1C947AA9009A46AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +122,32 @@
 		D0994EBF1C947AA8009A46AE = {
 			isa = PBXGroup;
 			children = (
+				84E7B4011CC4BF3100E07C98 /* Photo.h */,
+				84E7B4021CC4BF3100E07C98 /* Photo.m */,
+				84E7B4031CC4BF3100E07C98 /* User.h */,
+				84E7B4041CC4BF3100E07C98 /* User.m */,
+				84E7B3D51CC4BF1C00E07C98 /* AccountViewController.h */,
+				84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */,
+				84E7B3D71CC4BF1C00E07C98 /* CarIncidentDetailViewController.h */,
+				84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */,
+				84E7B3D91CC4BF1C00E07C98 /* CarIncidentsViewController.h */,
+				84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */,
+				84E7B3DB1CC4BF1C00E07C98 /* CreateAccountViewController.h */,
+				84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */,
+				84E7B3DD1CC4BF1C00E07C98 /* CustomTabBarViewController.h */,
+				84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */,
+				84E7B3DF1CC4BF1C00E07C98 /* FindDriverViewController.h */,
+				84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */,
+				84E7B3E11CC4BF1C00E07C98 /* HomeViewController.h */,
+				84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */,
+				84E7B3E31CC4BF1C00E07C98 /* LoginViewController.h */,
+				84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */,
+				84E7B3E51CC4BF1C00E07C98 /* LogoutViewController.h */,
+				84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */,
+				84E7B3E71CC4BF1C00E07C98 /* PersistenceController.h */,
+				84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */,
+				84E7B3E91CC4BF1C00E07C98 /* TakePhotoViewController.h */,
+				84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */,
 				58236F131CAEA5F70037AE82 /* AVFoundation.framework */,
 				58236F111CAEA24E0037AE82 /* libc++.tbd */,
 				58236F0F1CAEA2460037AE82 /* libz.tbd */,
@@ -150,16 +177,8 @@
 		D0994ECA1C947AA9009A46AE /* AutoFinder */ = {
 			isa = PBXGroup;
 			children = (
-				58236EF71CAE9EF60037AE82 /* User.m */,
-				584AEE861CA56B7800F6D8E4 /* User.h */,
-				58C9AFA91CB3E44B00A72E96 /* Photo.h */,
-				58C9AFAA1CB3E44B00A72E96 /* Photo.m */,
-				584AEE6B1CA41B0400F6D8E4 /* CreateAccountViewController.h */,
-				584AEE6C1CA41B0400F6D8E4 /* CreateAccountViewController.m */,
-				584AEE6D1CA41B0400F6D8E4 /* HomeViewController.h */,
-				584AEE6E1CA41B0400F6D8E4 /* HomeViewController.m */,
-				584AEE6F1CA41B0400F6D8E4 /* LoginViewController.h */,
-				584AEE701CA41B0400F6D8E4 /* LoginViewController.m */,
+				84E7B3D11CC421D400E07C98 /* Controller */,
+				84E7B3CF1CC4216100E07C98 /* Model */,
 				D0994ECE1C947AA9009A46AE /* AppDelegate.h */,
 				D0994ECF1C947AA9009A46AE /* AppDelegate.m */,
 				58AF211F1CB7CA3F0078975B /* Assets.xcassets */,
@@ -168,24 +187,6 @@
 				D0994EDF1C947AA9009A46AE /* Info.plist */,
 				D0994ED71C947AA9009A46AE /* AutoFinder.xcdatamodeld */,
 				D0994ECB1C947AA9009A46AE /* Supporting Files */,
-				584AEE651CA2979B00F6D8E4 /* FindDriverViewController.h */,
-				584AEE661CA2979B00F6D8E4 /* FindDriverViewController.m */,
-				584AEE681CA29B1900F6D8E4 /* TakePhotoViewController.h */,
-				584AEE691CA29B1900F6D8E4 /* TakePhotoViewController.m */,
-				584AEE891CA57AF200F6D8E4 /* AccountViewController.h */,
-				584AEE8A1CA57AF200F6D8E4 /* AccountViewController.m */,
-				588006871CA93C6700662C50 /* LogoutViewController.h */,
-				588006881CA93C6700662C50 /* LogoutViewController.m */,
-				58C9AFA61CB3BA7E00A72E96 /* CarIncidentsViewController.h */,
-				58C9AFA71CB3BA7E00A72E96 /* CarIncidentsViewController.m */,
-				CEE4F8C41CB50B1A0074C539 /* CarIncidentDetailViewController.h */,
-				CEE4F8C51CB50B1A0074C539 /* CarIncidentDetailViewController.m */,
-				CEE4F8C71CB54C150074C539 /* CustomAnnotation.h */,
-				CEE4F8C81CB54C150074C539 /* CustomAnnotation.m */,
-				58AF21211CB7CF860078975B /* CustomTabBarViewController.h */,
-				58AF21221CB7CF860078975B /* CustomTabBarViewController.m */,
-				843A65591CC24CF6002EC4A6 /* PersistenceController.h */,
-				843A655A1CC24CF6002EC4A6 /* PersistenceController.m */,
 			);
 			path = AutoFinder;
 			sourceTree = "<group>";
@@ -265,7 +266,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E7B3D01CC4216100E07C98 /* Model in Resources */,
 				CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */,
+				84E7B3D21CC421D400E07C98 /* Controller in Resources */,
 				D0994EDE1C947AA9009A46AE /* LaunchScreen.storyboard in Resources */,
 				58AF21201CB7CA3F0078975B /* Assets.xcassets in Resources */,
 				D0994ED61C947AA9009A46AE /* Main.storyboard in Resources */,
@@ -279,23 +282,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58C9AFAB1CB3E44B00A72E96 /* Photo.m in Sources */,
-				58236EF81CAE9EF60037AE82 /* User.m in Sources */,
-				58AF21231CB7CF860078975B /* CustomTabBarViewController.m in Sources */,
-				843A655B1CC24CF6002EC4A6 /* PersistenceController.m in Sources */,
+				84E7B4061CC4BF3100E07C98 /* Photo.m in Sources */,
+				84E7B4081CC4BF3100E07C98 /* User.m in Sources */,
+				84E7B3EC1CC4BF1C00E07C98 /* AccountViewController.m in Sources */,
+				84E7B3EE1CC4BF1C00E07C98 /* CarIncidentDetailViewController.m in Sources */,
+				84E7B3F01CC4BF1C00E07C98 /* CarIncidentsViewController.m in Sources */,
+				84E7B3F21CC4BF1C00E07C98 /* CreateAccountViewController.m in Sources */,
+				84E7B3F41CC4BF1C00E07C98 /* CustomTabBarViewController.m in Sources */,
+				84E7B3F61CC4BF1C00E07C98 /* FindDriverViewController.m in Sources */,
+				84E7B3F81CC4BF1C00E07C98 /* HomeViewController.m in Sources */,
+				84E7B3FA1CC4BF1C00E07C98 /* LoginViewController.m in Sources */,
+				84E7B3FC1CC4BF1C00E07C98 /* LogoutViewController.m in Sources */,
+				84E7B3FE1CC4BF1D00E07C98 /* PersistenceController.m in Sources */,
+				84E7B4001CC4BF1D00E07C98 /* TakePhotoViewController.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
-				CEE4F8C91CB54C150074C539 /* CustomAnnotation.m in Sources */,
-				584AEE731CA41B0400F6D8E4 /* CreateAccountViewController.m in Sources */,
-				584AEE671CA2979B00F6D8E4 /* FindDriverViewController.m in Sources */,
 				D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */,
-				584AEE8B1CA57AF200F6D8E4 /* AccountViewController.m in Sources */,
-				58C9AFA81CB3BA7E00A72E96 /* CarIncidentsViewController.m in Sources */,
-				584AEE751CA41B0400F6D8E4 /* LoginViewController.m in Sources */,
-				584AEE6A1CA29B1900F6D8E4 /* TakePhotoViewController.m in Sources */,
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
-				588006891CA93C6700662C50 /* LogoutViewController.m in Sources */,
-				584AEE741CA41B0400F6D8E4 /* HomeViewController.m in Sources */,
-				CEE4F8C61CB50B1A0074C539 /* CarIncidentDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
