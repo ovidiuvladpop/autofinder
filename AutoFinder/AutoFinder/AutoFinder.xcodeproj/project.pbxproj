@@ -21,19 +21,6 @@
 		58AF21201CB7CA3F0078975B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58AF211F1CB7CA3F0078975B /* Assets.xcassets */; };
 		84E7B3D01CC4216100E07C98 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B3CF1CC4216100E07C98 /* Model */; };
 		84E7B3D21CC421D400E07C98 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B3D11CC421D400E07C98 /* Controller */; };
-		84E7B3EC1CC4BF1C00E07C98 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */; };
-		84E7B3EE1CC4BF1C00E07C98 /* CarIncidentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */; };
-		84E7B3F01CC4BF1C00E07C98 /* CarIncidentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */; };
-		84E7B3F21CC4BF1C00E07C98 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */; };
-		84E7B3F41CC4BF1C00E07C98 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */; };
-		84E7B3F61CC4BF1C00E07C98 /* FindDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */; };
-		84E7B3F81CC4BF1C00E07C98 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */; };
-		84E7B3FA1CC4BF1C00E07C98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */; };
-		84E7B3FC1CC4BF1C00E07C98 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */; };
-		84E7B3FE1CC4BF1D00E07C98 /* PersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */; };
-		84E7B4001CC4BF1D00E07C98 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */; };
-		84E7B4061CC4BF3100E07C98 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B4021CC4BF3100E07C98 /* Photo.m */; };
-		84E7B4081CC4BF3100E07C98 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B4041CC4BF3100E07C98 /* User.m */; };
 		CEE4F8BF1CB503960074C539 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE4F8BE1CB503960074C539 /* SKMaps.bundle */; };
 		CEE4F8C31CB503FF0074C539 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE4F8C21CB503FF0074C539 /* SKMaps.framework */; };
 		D0994ECD1C947AA9009A46AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0994ECC1C947AA9009A46AE /* main.m */; };
@@ -58,32 +45,6 @@
 		58AF211F1CB7CA3F0078975B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E7B3CF1CC4216100E07C98 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		84E7B3D11CC421D400E07C98 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
-		84E7B3D51CC4BF1C00E07C98 /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = AutoFinder/Controller/AccountViewController.h; sourceTree = "<group>"; };
-		84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = AutoFinder/Controller/AccountViewController.m; sourceTree = "<group>"; };
-		84E7B3D71CC4BF1C00E07C98 /* CarIncidentDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CarIncidentDetailViewController.h; path = AutoFinder/Controller/CarIncidentDetailViewController.h; sourceTree = "<group>"; };
-		84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CarIncidentDetailViewController.m; path = AutoFinder/Controller/CarIncidentDetailViewController.m; sourceTree = "<group>"; };
-		84E7B3D91CC4BF1C00E07C98 /* CarIncidentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CarIncidentsViewController.h; path = AutoFinder/Controller/CarIncidentsViewController.h; sourceTree = "<group>"; };
-		84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CarIncidentsViewController.m; path = AutoFinder/Controller/CarIncidentsViewController.m; sourceTree = "<group>"; };
-		84E7B3DB1CC4BF1C00E07C98 /* CreateAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateAccountViewController.h; path = AutoFinder/Controller/CreateAccountViewController.h; sourceTree = "<group>"; };
-		84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreateAccountViewController.m; path = AutoFinder/Controller/CreateAccountViewController.m; sourceTree = "<group>"; };
-		84E7B3DD1CC4BF1C00E07C98 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomTabBarViewController.h; path = AutoFinder/Controller/CustomTabBarViewController.h; sourceTree = "<group>"; };
-		84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = AutoFinder/Controller/CustomTabBarViewController.m; sourceTree = "<group>"; };
-		84E7B3DF1CC4BF1C00E07C98 /* FindDriverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FindDriverViewController.h; path = AutoFinder/Controller/FindDriverViewController.h; sourceTree = "<group>"; };
-		84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FindDriverViewController.m; path = AutoFinder/Controller/FindDriverViewController.m; sourceTree = "<group>"; };
-		84E7B3E11CC4BF1C00E07C98 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = AutoFinder/Controller/HomeViewController.h; sourceTree = "<group>"; };
-		84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = AutoFinder/Controller/HomeViewController.m; sourceTree = "<group>"; };
-		84E7B3E31CC4BF1C00E07C98 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = AutoFinder/Controller/LoginViewController.h; sourceTree = "<group>"; };
-		84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = AutoFinder/Controller/LoginViewController.m; sourceTree = "<group>"; };
-		84E7B3E51CC4BF1C00E07C98 /* LogoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogoutViewController.h; path = AutoFinder/Controller/LogoutViewController.h; sourceTree = "<group>"; };
-		84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LogoutViewController.m; path = AutoFinder/Controller/LogoutViewController.m; sourceTree = "<group>"; };
-		84E7B3E71CC4BF1C00E07C98 /* PersistenceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PersistenceController.h; path = AutoFinder/Controller/PersistenceController.h; sourceTree = "<group>"; };
-		84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PersistenceController.m; path = AutoFinder/Controller/PersistenceController.m; sourceTree = "<group>"; };
-		84E7B3E91CC4BF1C00E07C98 /* TakePhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TakePhotoViewController.h; path = AutoFinder/Controller/TakePhotoViewController.h; sourceTree = "<group>"; };
-		84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TakePhotoViewController.m; path = AutoFinder/Controller/TakePhotoViewController.m; sourceTree = "<group>"; };
-		84E7B4011CC4BF3100E07C98 /* Photo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = AutoFinder/Model/Photo.h; sourceTree = "<group>"; };
-		84E7B4021CC4BF3100E07C98 /* Photo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = AutoFinder/Model/Photo.m; sourceTree = "<group>"; };
-		84E7B4031CC4BF3100E07C98 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = AutoFinder/Model/User.h; sourceTree = "<group>"; };
-		84E7B4041CC4BF3100E07C98 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = User.m; path = AutoFinder/Model/User.m; sourceTree = "<group>"; };
 		CEE4F8BE1CB503960074C539 /* SKMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SKMaps.bundle; sourceTree = "<group>"; };
 		CEE4F8C21CB503FF0074C539 /* SKMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SKMaps.framework; sourceTree = "<group>"; };
 		D0994EC81C947AA9009A46AE /* AutoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,32 +83,6 @@
 		D0994EBF1C947AA8009A46AE = {
 			isa = PBXGroup;
 			children = (
-				84E7B4011CC4BF3100E07C98 /* Photo.h */,
-				84E7B4021CC4BF3100E07C98 /* Photo.m */,
-				84E7B4031CC4BF3100E07C98 /* User.h */,
-				84E7B4041CC4BF3100E07C98 /* User.m */,
-				84E7B3D51CC4BF1C00E07C98 /* AccountViewController.h */,
-				84E7B3D61CC4BF1C00E07C98 /* AccountViewController.m */,
-				84E7B3D71CC4BF1C00E07C98 /* CarIncidentDetailViewController.h */,
-				84E7B3D81CC4BF1C00E07C98 /* CarIncidentDetailViewController.m */,
-				84E7B3D91CC4BF1C00E07C98 /* CarIncidentsViewController.h */,
-				84E7B3DA1CC4BF1C00E07C98 /* CarIncidentsViewController.m */,
-				84E7B3DB1CC4BF1C00E07C98 /* CreateAccountViewController.h */,
-				84E7B3DC1CC4BF1C00E07C98 /* CreateAccountViewController.m */,
-				84E7B3DD1CC4BF1C00E07C98 /* CustomTabBarViewController.h */,
-				84E7B3DE1CC4BF1C00E07C98 /* CustomTabBarViewController.m */,
-				84E7B3DF1CC4BF1C00E07C98 /* FindDriverViewController.h */,
-				84E7B3E01CC4BF1C00E07C98 /* FindDriverViewController.m */,
-				84E7B3E11CC4BF1C00E07C98 /* HomeViewController.h */,
-				84E7B3E21CC4BF1C00E07C98 /* HomeViewController.m */,
-				84E7B3E31CC4BF1C00E07C98 /* LoginViewController.h */,
-				84E7B3E41CC4BF1C00E07C98 /* LoginViewController.m */,
-				84E7B3E51CC4BF1C00E07C98 /* LogoutViewController.h */,
-				84E7B3E61CC4BF1C00E07C98 /* LogoutViewController.m */,
-				84E7B3E71CC4BF1C00E07C98 /* PersistenceController.h */,
-				84E7B3E81CC4BF1C00E07C98 /* PersistenceController.m */,
-				84E7B3E91CC4BF1C00E07C98 /* TakePhotoViewController.h */,
-				84E7B3EA1CC4BF1C00E07C98 /* TakePhotoViewController.m */,
 				58236F131CAEA5F70037AE82 /* AVFoundation.framework */,
 				58236F111CAEA24E0037AE82 /* libc++.tbd */,
 				58236F0F1CAEA2460037AE82 /* libz.tbd */,
@@ -282,19 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E7B4061CC4BF3100E07C98 /* Photo.m in Sources */,
-				84E7B4081CC4BF3100E07C98 /* User.m in Sources */,
-				84E7B3EC1CC4BF1C00E07C98 /* AccountViewController.m in Sources */,
-				84E7B3EE1CC4BF1C00E07C98 /* CarIncidentDetailViewController.m in Sources */,
-				84E7B3F01CC4BF1C00E07C98 /* CarIncidentsViewController.m in Sources */,
-				84E7B3F21CC4BF1C00E07C98 /* CreateAccountViewController.m in Sources */,
-				84E7B3F41CC4BF1C00E07C98 /* CustomTabBarViewController.m in Sources */,
-				84E7B3F61CC4BF1C00E07C98 /* FindDriverViewController.m in Sources */,
-				84E7B3F81CC4BF1C00E07C98 /* HomeViewController.m in Sources */,
-				84E7B3FA1CC4BF1C00E07C98 /* LoginViewController.m in Sources */,
-				84E7B3FC1CC4BF1C00E07C98 /* LogoutViewController.m in Sources */,
-				84E7B3FE1CC4BF1D00E07C98 /* PersistenceController.m in Sources */,
-				84E7B4001CC4BF1D00E07C98 /* TakePhotoViewController.m in Sources */,
 				D0994ED91C947AA9009A46AE /* AutoFinder.xcdatamodeld in Sources */,
 				D0994ED01C947AA9009A46AE /* AppDelegate.m in Sources */,
 				D0994ECD1C947AA9009A46AE /* main.m in Sources */,
